@@ -1,0 +1,47 @@
+site_name: Codelab Robot Framework
+site_description: Guide d'apprentissage de Robot Framework
+site_author: Rémi PICARD
+
+theme:
+  name: material
+  language: fr
+  palette:
+    - scheme: default
+      primary: blue
+      accent: blue
+      toggle:
+        icon: material/brightness-7
+        name: Passer au mode sombre
+    - scheme: slate
+      primary: blue
+      accent: blue
+      toggle:
+        icon: material/brightness-4
+        name: Passer au mode clair
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.top
+    - search.highlight
+    - content.code.copy
+    - toc.integrate
+
+nav:
+  - Accueil: index.md
+  - Installation de l'environnement: installation.md
+  - Installation avec Docker: installation-docker.md
+  - Hello World Robot Framework: hello-world.md
+  - Configuration des IDEs: configuration-ide.md
+
+markdown_extensions:
+  - codehilite:
+      guess_lang: false
+  - toc:
+      permalink: true
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
