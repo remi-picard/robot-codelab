@@ -32,6 +32,7 @@ nav:
   - Installation avec Docker: installation-docker.md
   - Hello World Robot Framework: hello-world.md
   - Configuration des IDEs: configuration-ide.md
+  - API Booker: api-booker.md
 
 markdown_extensions:
   - codehilite:

@@ -22,9 +22,9 @@ Suivez les étapes présentées par [Set up your IDE](https://docs.robotframewor
 1. Clic droit sur votre fichier `.robot`
 2. **Run 'nom_fichier.robot'**
 3. Ou configurez une **Run Configuration** personnalisée :
-    - **Run** → **Edit Configurations**
-    - **+** → **Robot Framework**
-    - Configurez le chemin vers votre script et les arguments
+   - **Run** → **Edit Configurations**
+   - **+** → **Robot Framework**
+   - Configurez le chemin vers votre script et les arguments
 
 ---
 
@@ -76,6 +76,47 @@ Créez le fichier `.vscode/robotframework.code-snippets` :
 
 ---
 
+## Configuration commune recommandée
+
+### Structure de projet recommandée
+
+```
+mon-projet-robot/
+├── tests/
+│   ├── test_suite_1.robot
+│   └── test_suite_2.robot
+├── resources/
+│   ├── keywords.resource
+│   └── variables.resource
+├── libraries/
+│   └── custom_library.py
+├── results/
+│   └── (rapports générés)
+├── requirements.txt
+└── robot.yaml (optionnel)
+```
+
+### Fichier robot.yaml (optionnel)
+
+Créez un fichier `robot.yaml` à la racine de votre projet :
+
+```yaml
+tasks:
+  Run all tests:
+    shell: robot --outputdir results tests/
+  
+  Run single test:
+    shell: robot --outputdir results tests/${test_file}
+
+condaConfigFile: conda.yaml
+artifactsDir: results
+PATH:
+  - .
+PYTHONPATH:
+  - .
+  - libraries
+```
+
 ## Conseils pour optimiser votre workflow
 
 !!! tip "Raccourcis utiles"
@@ -117,3 +158,5 @@ Si l'auto-complétion, la coloration syntaxique et l'exécution fonctionnent cor
 ## Prochaines étapes
 
 Maintenant que votre environnement de développement est configuré, vous êtes prêt à créer des tests plus complexes et à utiliser toutes les fonctionnalités avancées de Robot Framework.
+
+Dans la [prochaine section](api-booker.md), nous allons mettre en pratique vos connaissances avec un exercice complet de test d'API REST.
