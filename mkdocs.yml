@@ -33,6 +33,7 @@ nav:
   - Hello World Robot Framework: hello-world.md
   - Configuration des IDEs: configuration-ide.md
   - API Booker: api-booker.md
+  - TODO MVC: todo-mvc.md
 
 markdown_extensions:
   - codehilite:

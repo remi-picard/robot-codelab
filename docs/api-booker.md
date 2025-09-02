@@ -232,7 +232,6 @@ Si vous terminez rapidement, essayez ces défis supplémentaires :
 ## 🏆 Validation
 
 Votre exercice est réussi si :
-
 - ✅ Tous vos tests passent (statut PASS)
 - ✅ Vous créez, lisez, modifiez et supprimez une réservation
 - ✅ L'authentification fonctionne correctement
@@ -240,3 +239,7 @@ Votre exercice est réussi si :
 - ✅ Votre code est lisible et bien organisé
 
 Bon courage ! N'hésitez pas à expérimenter et à consulter la documentation en cas de besoin.
+
+## Prochaines étapes
+
+Une fois que vous maîtrisez les tests d'API, découvrez les tests d'interface utilisateur dans l'[exercice TODO MVC](exercice-todo-mvc.md) !

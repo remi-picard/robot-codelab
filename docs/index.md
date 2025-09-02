@@ -31,8 +31,9 @@ Avant de commencer, assurez-vous d'avoir :
 3. **Hello World Robot Framework** - Votre premier test simple
 4. **Configuration des IDEs** - Configuration de PyCharm et VSCode
 5. **Exercice API Booker** - Test d'une API REST avec Robot Framework
-6. Création de tests de base (à venir)
-7. Utilisation des bibliothèques (à venir)
-8. Organisation et bonnes pratiques (à venir)
+6. **Exercice TODO MVC** - Test d'interface utilisateur avec Browser Library
+7. Création de tests de base (à venir)
+8. Utilisation des bibliothèques (à venir)
+9. Organisation et bonnes pratiques (à venir)
 
 Commençons par l'installation de l'environnement !
