@@ -28,10 +28,10 @@ theme:
 
 nav:
   - Accueil: index.md
-  - Installation de l'environnement: installation.md
-  - Installation avec Docker: installation-docker.md
-  - Hello World Robot Framework: hello-world.md
-  - Configuration des IDEs: configuration-ide.md
+  - Install: installation.md
+  - Install Docker: installation-docker.md
+  - Hello World: hello-world.md
+  - Conf IDE: configuration-ide.md
   - API Booker: api-booker.md
   - TODO MVC: todo-mvc.md
 

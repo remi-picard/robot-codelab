@@ -242,4 +242,4 @@ Bon courage ! N'hésitez pas à expérimenter et à consulter la documentation e
 
 ## Prochaines étapes
 
-Une fois que vous maîtrisez les tests d'API, découvrez les tests d'interface utilisateur dans l'[exercice TODO MVC](exercice-todo-mvc.md) !
+Une fois que vous maîtrisez les tests d'API, découvrez les tests d'interface utilisateur dans l'[exercice TODO MVC](todo-mvc.md) !
