@@ -37,7 +37,6 @@ Votre première mission est d'installer les outils nécessaires pour l'automatis
 2. Installez les navigateurs Playwright
 
     **Indices :** 
-
     - Utilisez `pip install robotframework-browser`
     - Exécutez `rfbrowser init` après l'installation
 
@@ -255,18 +254,17 @@ Si vous terminez rapidement, essayez ces défis supplémentaires :
 - Gérez les temps d'attente appropriés
 
 !!! tip "Debug et développement"
-
 ```robot
 # Capture d'écran pour debug
 Take Screenshot    debug_step_${TEST_NAME}.png
 
-# Pause pour inspection manuelle
-Pause Execution    Inspectez l'état current
- 
-# Log des éléments trouvés
-${elements}=    Get Elements    css=.todo
-Log    Nombre d'éléments trouvés: ${elements.length}
-```
+    # Pause pour inspection manuelle
+    Pause Execution    Inspectez l'état current
+    
+    # Log des éléments trouvés
+    ${elements}=    Get Elements    css=.todo
+    Log    Nombre d'éléments trouvés: ${elements.length}
+    ```
 
 !!! warning "Points d'attention"
 - L'application TODO MVC peut être réinitialisée à chaque rechargement
@@ -299,7 +297,6 @@ ${TODO_COUNT}            css=.todo-count
 ## 🏆 Validation
 
 Votre exercice est réussi si :
-
 - ✅ Tous vos tests passent dans au moins un navigateur
 - ✅ Vous pouvez créer, lister, filtrer, terminer et supprimer des tâches
 - ✅ Vos sélecteurs sont robustes et ne cassent pas facilement
@@ -324,3 +321,7 @@ Debug État Application
 ```
 
 Bon courage ! N'hésitez pas à expérimenter avec différents navigateurs et à personnaliser vos tests selon vos besoins.
+
+## Prochaines étapes
+
+Après avoir maîtrisé l'automation d'interface utilisateur, relevez un défi plus ludique avec le [Jeu Robot Flower Princess](robot-flower-princess.md) qui combine APIs, algorithmes et stratégie !
