@@ -12,6 +12,10 @@ Dans cet exercice pratique, vous allez apprendre à tester une API REST avec Rob
 - Valider les réponses JSON
 - Organiser vos tests API
 
+## 🕰️ Durée
+
+1h à 1h30
+
 ## 📚 Documentation de l'API
 
 L'API Booker est disponible à l'adresse : [https://restful-booker.herokuapp.com/](https://restful-booker.herokuapp.com/)
@@ -30,16 +34,16 @@ Documentation complète : [https://restful-booker.herokuapp.com/apidoc/index.htm
 
 ### Étape 1 : Installation de RequestsLibrary
 
-Votre première mission est d'installer la bibliothèque nécessaire pour effectuer des requêtes HTTP.
+Votre première mission est d'installer la librairie nécessaire pour effectuer des requêtes HTTP.
 
 !!! question "À faire"
-Installez la bibliothèque RequestsLibrary dans votre environnement virtuel.
+Installez la librairie RequestsLibrary dans votre environnement virtuel.
 
     **Indice :** Utilisez pip pour installer `robotframework-requests`
 
 ### Étape 2 : Configuration de base
 
-Créez un fichier `test_api_booker.robot` avec la structure de base.
+Créez un fichier `booker.robot` avec la structure de base.
 
 !!! question "À faire"
 1. Importez la RequestsLibrary dans la section `*** Settings ***`
@@ -47,9 +51,10 @@ Créez un fichier `test_api_booker.robot` avec la structure de base.
 3. Créez une session HTTP réutilisable
 
 **Structure suggérée :**
+
 ```robot
 *** Settings ***
-# TODO: Importer la bibliothèque nécessaire
+# TODO: Importer la librairie nécessaire
 
 *** Variables ***
 # TODO: Définir l'URL de base de l'API
@@ -58,7 +63,7 @@ Créez un fichier `test_api_booker.robot` avec la structure de base.
 # Vos tests iront ici
 
 *** Keywords ***
-# Vos mots-clés personnalisés iront ici
+# Vos Keywords personnalisés iront ici
 ```
 
 ### Étape 3 : Créer une réservation
@@ -225,13 +230,14 @@ Si vous terminez rapidement, essayez ces défis supplémentaires :
 
 ## 📖 Ressources utiles
 
-- [Documentation RequestsLibrary](https://marketsquare.github.io/robotframework-requests/doc/RequestsLibrary.html)
-- [Documentation API Booker](https://restful-booker.herokuapp.com/apidoc/index.html)
-- [Guide Robot Framework JSON](https://robotframework.org/robotframework/latest/libraries/Collections.html)
+- [RequestsLibrary](https://marketsquare.github.io/robotframework-requests/doc/RequestsLibrary.html)
+- [BuiltIn](https://robotframework.org/robotframework/latest/libraries/BuiltIn.html)
+- [Collections](https://robotframework.org/robotframework/latest/libraries/Collections.html)
 
 ## 🏆 Validation
 
 Votre exercice est réussi si :
+
 - ✅ Tous vos tests passent (statut PASS)
 - ✅ Vous créez, lisez, modifiez et supprimez une réservation
 - ✅ L'authentification fonctionne correctement

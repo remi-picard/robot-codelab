@@ -13,7 +13,11 @@ Dans cet exercice pratique, vous allez apprendre à automatiser les tests d'inte
 - Prendre des captures d'écran pour le débogage
 - Organiser vos tests UI de manière efficace
 
-## 🌐 Application sous test
+## 🕰️ Durée
+
+2h à 3h
+
+## 🌐 Application à tester
 
 Nous utiliserons l'application TODO MVC React disponible à l'adresse :
 [https://todomvc.com/examples/react/dist](https://todomvc.com/examples/react/dist)
@@ -37,6 +41,7 @@ Votre première mission est d'installer les outils nécessaires pour l'automatis
 2. Installez les navigateurs Playwright
 
     **Indices :** 
+
     - Utilisez `pip install robotframework-browser`
     - Exécutez `rfbrowser init` après l'installation
 
@@ -45,12 +50,13 @@ L'installation de Playwright peut prendre plusieurs minutes car elle télécharg
 
 ### Étape 2 : Configuration de base et premier test
 
-Créez un fichier `test_todo_mvc.robot` avec la structure de base.
+Créez un fichier `todo_mvc.robot` avec la structure de base.
 
 !!! question "À faire"
 1. Importez la Browser Library dans la section `*** Settings ***`
 2. Définissez l'URL de l'application comme variable
 3. Créez un test simple pour ouvrir l'application et vérifier qu'elle se charge
+4. Vérifiez que le titre de la page contient "TodoMVC"
 
 **Structure suggérée :**
 ```robot
@@ -68,9 +74,7 @@ Créez un fichier `test_todo_mvc.robot` avec la structure de base.
 ```
 
 !!! tip "Indices"
-- Utilisez `New Browser` et `New Page` pour initialiser le navigateur
-- Vérifiez que le titre de la page contient "TodoMVC"
-- N'oubliez pas de fermer le navigateur après les tests
+- Utilisez `New Page` pour initialiser le navigateur
 
 ### Étape 3 : Créer une tâche
 
@@ -248,6 +252,7 @@ Si vous terminez rapidement, essayez ces défis supplémentaires :
 ## 💡 Conseils pour réussir
 
 !!! tip "Bonnes pratiques UI"
+
 - Utilisez des attentes explicites (`Wait For Elements State`)
 - Prenez des captures d'écran aux étapes importantes
 - Utilisez des sélecteurs robustes (ID > classe > XPath)
@@ -264,9 +269,10 @@ Take Screenshot    debug_step_${TEST_NAME}.png
     # Log des éléments trouvés
     ${elements}=    Get Elements    css=.todo
     Log    Nombre d'éléments trouvés: ${elements.length}
-    ```
+```
 
 !!! warning "Points d'attention"
+
 - L'application TODO MVC peut être réinitialisée à chaque rechargement
 - Certains éléments ne sont visibles qu'en cas d'interaction (hover, focus)
 - Les sélecteurs CSS peuvent varier selon l'implémentation
@@ -274,10 +280,10 @@ Take Screenshot    debug_step_${TEST_NAME}.png
 
 ## 📖 Ressources utiles
 
-- [Documentation Browser Library](https://marketsquare.github.io/robotframework-browser/Browser.html)
-- [Playwright Documentation](https://playwright.dev/)
+- [Browser Library](https://marketsquare.github.io/robotframework-browser/Browser.html)
+- [Playwright](https://playwright.dev/docs/intro)
 - [Guide des sélecteurs CSS](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors)
-- [TODO MVC Project](https://todomvc.com/)
+- [Exemples / Comparaison](https://robotframework-browser.org/#examples)
 
 ## 🛠️ Sélecteurs utiles
 
@@ -297,6 +303,7 @@ ${TODO_COUNT}            css=.todo-count
 ## 🏆 Validation
 
 Votre exercice est réussi si :
+
 - ✅ Tous vos tests passent dans au moins un navigateur
 - ✅ Vous pouvez créer, lister, filtrer, terminer et supprimer des tâches
 - ✅ Vos sélecteurs sont robustes et ne cassent pas facilement
