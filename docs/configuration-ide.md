@@ -8,6 +8,18 @@ PyCharm offre un excellent support pour Robot Framework avec des plugins dédié
 
 Suivez les étapes présentées par [Set up your IDE](https://docs.robotframework.org/docs/getting_started/ide#pycharm).
 
+En résumé :
+
+- Installer PyCharm Community Edition
+- Installer l'extension `Hyper RobotFramework Support`
+
+!!! warning "Choisir le bon plugin"
+Ne pas installer `Robot Framework Language Server` qui n'est pas compatible Robot Framework 7+
+
+!!! info "Autre plugin à tester"
+[Robot Code](https://plugins.jetbrains.com/plugin/26216-robotcode--robot-framework-support) sortie en 2025
+
+
 ### Fonctionnalités disponibles dans PyCharm
 
 - ✅ **Coloration syntaxique** complète
@@ -17,14 +29,7 @@ Suivez les étapes présentées par [Set up your IDE](https://docs.robotframewor
 - ✅ **Exécution directe** des tests
 - ✅ **Débogage** des tests
 
-### Configuration de l'exécution
-
-1. Clic droit sur votre fichier `.robot`
-2. **Run 'nom_fichier.robot'**
-3. Ou configurez une **Run Configuration** personnalisée :
-   - **Run** → **Edit Configurations**
-   - **+** → **Robot Framework**
-   - Configurez le chemin vers votre script et les arguments
+![pycharm.png](pycharm.png)
 
 ---
 
@@ -33,6 +38,18 @@ Suivez les étapes présentées par [Set up your IDE](https://docs.robotframewor
 VSCode avec les bonnes extensions offre une excellente expérience de développement pour Robot Framework.
 
 Suivez les étapes présentées par [Set up your IDE](https://docs.robotframework.org/docs/getting_started/ide#visual-studio-code).
+
+En résumé :
+
+- Installer [VS Code](https://code.visualstudio.com)
+- Installer l'extension [Robot Code](https://marketplace.visualstudio.com/items?itemName=d-biehl.robotcode)
+
+!!! warning "Choisir le bon plugin"
+Ne pas installer `Robot Framework Language Server` qui n'est pas compatible Robot Framework 7+
+
+Configurer le Python Path dans les options RobotCode :
+
+![pythonpath.png](pythonpath.png)
 
 ### Fonctionnalités disponibles dans VSCode
 
@@ -43,6 +60,8 @@ Suivez les étapes présentées par [Set up your IDE](https://docs.robotframewor
 - ✅ **Outline** de la structure du fichier
 - ✅ **Exécution** directe des tests
 - ✅ **Intégration terminal**
+
+![vscode.png](vscode.png)
 
 ### Snippets utiles pour VSCode
 
@@ -74,55 +93,15 @@ Créez le fichier `.vscode/robotframework.code-snippets` :
 }
 ```
 
+Pour utiliser ces [snippets](https://code.visualstudio.com/docs/editing/userdefinedsnippets) : actionnez l'IntelliSense (`Ctrl+Space` ou `⌃Space`).
+
 ---
-
-## Configuration commune recommandée
-
-### Structure de projet recommandée
-
-```
-mon-projet-robot/
-├── tests/
-│   ├── test_suite_1.robot
-│   └── test_suite_2.robot
-├── resources/
-│   ├── keywords.resource
-│   └── variables.resource
-├── libraries/
-│   └── custom_library.py
-├── results/
-│   └── (rapports générés)
-├── requirements.txt
-└── robot.yaml (optionnel)
-```
-
-### Fichier robot.yaml (optionnel)
-
-Créez un fichier `robot.yaml` à la racine de votre projet :
-
-```yaml
-tasks:
-  Run all tests:
-    shell: robot --outputdir results tests/
-  
-  Run single test:
-    shell: robot --outputdir results tests/${test_file}
-
-condaConfigFile: conda.yaml
-artifactsDir: results
-PATH:
-  - .
-PYTHONPATH:
-  - .
-  - libraries
-```
 
 ## Conseils pour optimiser votre workflow
 
 !!! tip "Raccourcis utiles"
 **PyCharm:**
 
-- `Ctrl+Shift+F10` : Exécuter le test sous le curseur
 - `Ctrl+B` : Aller à la définition
 - `Alt+Enter` : Actions rapides
 
@@ -137,23 +116,6 @@ Activez le formatage automatique dans votre IDE pour maintenir une syntaxe cohé
 
 !!! warning "Attention aux chemins"
 Assurez-vous que les chemins vers votre environnement virtuel Python sont corrects dans la configuration de votre IDE.
-
-## Test de configuration
-
-Créez un fichier de test simple pour vérifier que votre configuration fonctionne :
-
-```robot
-*** Settings ***
-Documentation    Test de configuration IDE
-
-*** Test Cases ***
-Test Configuration IDE
-    [Documentation]    Vérifie que l'IDE est correctement configuré
-    Log    Configuration IDE réussie
-    Should Be True    True
-```
-
-Si l'auto-complétion, la coloration syntaxique et l'exécution fonctionnent correctement, votre IDE est prêt !
 
 ## Prochaines étapes
 

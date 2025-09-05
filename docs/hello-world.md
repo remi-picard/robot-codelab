@@ -22,6 +22,9 @@ Hello World Test
 Ouvrez votre terminal dans le répertoire contenant le fichier `hello_world.robot` et exécutez la commande suivante :
 
 ```bash
+# Activer l'env virtuel si besoin
+# source venv/bin/activate
+
 robot hello_world.robot
 ```
 
@@ -36,11 +39,12 @@ Après l'exécution, vous devriez voir :
 Exemple de sortie console :
 ```
 ==============================================================================
-Hello World
+Hello World :: Mon premier test Robot Framework
 ==============================================================================
+Hello World Test :: Test simple qui affiche Hello World               .Hello World
 Hello World Test :: Test simple qui affiche Hello World               | PASS |
 ------------------------------------------------------------------------------
-Hello World                                                           | PASS |
+Hello World :: Mon premier test Robot Framework                       | PASS |
 1 test, 1 passed, 0 failed
 ==============================================================================
 Output:  /chemin/vers/votre/projet/output.xml

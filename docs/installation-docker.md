@@ -14,28 +14,30 @@ Vérifiez l'installation :
 docker --version
 ```
 
-## Méthode 1 : Utilisation de l'image officielle
+## Méthode 1 : Utilisation de l'image populaire
 
-### Image Robot Framework officielle
+### Téléchargement
 
-L'image officielle `robotframework/rfdocker` contient Robot Framework avec de nombreuses bibliothèques utiles pré-installées.
+L'image `marketsquare/robotframework-browser`, citée dans la [documentation officielle](https://docs.robotframework.org/docs/using_rf_in_ci_systems/docker#popular-docker-images-for-robot-framework), contient Robot Framework avec quelques librairies pré-installées.
 
 ```bash
 # Télécharger l'image
-docker pull robotframework/rfdocker
+docker pull marketsquare/robotframework-browser
 
 # Vérifier l'installation
-docker run --rm --entrypoint robot robotframework/rfdocker --version
+docker run --rm marketsquare/robotframework-browser robot --version
 
-# Ou simplement
-docker run --rm robotframework/rfdocker --version
+# Lister les librairies pré-installées
+docker run --rm marketsquare/robotframework-browser pip list
+
+# Entrer dans l'image Docker
+docker run -it --rm -v "$(pwd)":/test marketsquare/robotframework-browser bash
+# Ctrl+D pour quitter
 ```
 
 ### Exécution d'un test simple
 
 Créer un dossier vide avec le nouveau projet `hello-robot-in-docker`.
-
-Puis dans ce dossier, initialiser l'environnement virtuel :
 
 Créez un fichier `hello_docker.robot` :
 
@@ -53,23 +55,25 @@ Hello Docker Test
 Exécutez le test avec Docker :
 
 ```bash
-docker run --rm -v "$(pwd)":/robot robotframework/rfdocker /robot/hello_docker.robot
+docker run --rm -v "$(pwd)":/robot -w /robot marketsquare/robotframework-browser robot hello_docker.robot
 ```
 
 !!! note "Explication de la commande"
 - `--rm` : Supprime le conteneur après exécution
 - `-v "$(pwd)":/robot` : Monte le répertoire courant dans le conteneur
+- `-w /robot` : Précise le répertoire courant ("workdir") dans le conteneur
 - Les fichiers de sortie (par exemple `log.html`) sont placés dans le répertoire courant (ils sont écrasés à chaque lancement)
-- `robotframework/rfdocker` : L'image à utiliser
-- `/robot/hello_docker.robot` : Chemin absolu du test à lancer
-- Inutile de préciser la commande `robot` car c'est l'entrypoint par défaut
+- `marketsquare/robotframework-browser` : L'image à utiliser
+- `hello_docker.robot` : Chemin relatif du test à lancer (à partir du workdir)
 
-<br/>
+!!! warning "PermissionError"
+Bien préciser l'option `-w /robot` sinon le user dans le conteneur essaye d'écrire à la racine (là où il n'a les droits...) et on a l'erreur 
+`[ ERROR ] Opening output file '/output.xml' failed: PermissionError: [Errno 13] Permission denied: '/output.xml'`
 
-Une version plus explicite (entrypoint et workdir précisés) :
+Sans l'option `-w`, on aurait pu aussi préciser l'option robot `--outputdir` : 
 
 ```bash
-docker run --rm --entrypoint robot -w /robot -v "$(pwd)":/robot robotframework/rfdocker hello_docker.robot
+docker run --rm -v "$(pwd)":/robot marketsquare/robotframework-browser robot --outputdir /robot /robot/hello_docker.robot
 ```
 
 ## Méthode 2 : Créer votre propre image Docker
@@ -135,19 +139,18 @@ docker build -t mon-robot-framework .
 docker run --rm -v "$(pwd)":/robot mon-robot-framework
 ```
 
-Les fichiers de sortie sont présents dans le dossier `results` car l'option `--outputdir` a été spécifiée.
+Les fichiers de sortie sont présents dans le dossier `results` car l'option `--outputdir` a été spécifiée (voir `Dockerfile`).
 
 ## Avantages de Docker pour Robot Framework
 
 !!! success "Avantages"
 - **Portabilité** : Même environnement sur tous les systèmes
 - **Isolation** : Pas de conflit avec les dépendances système
-- **Reproductibilité** : Tests identiques en développement et production
+- **Reproductibilité** : Tests identiques en développement et en environnement de test
 - **Facilité de déploiement** : Intégration simple dans CI/CD
 - **Versions multiples** : Testez avec différentes versions facilement
 
 !!! tip "Bonnes pratiques"
-- Utilisez des tags de version spécifiques pour la production
 - Montez seulement les répertoires nécessaires
 - Utilisez `.dockerignore` pour exclure les fichiers inutiles
 - Définissez des volumes pour persister les résultats
@@ -156,23 +159,10 @@ Les fichiers de sortie sont présents dans le dossier `results` car l'option `--
 
 ### Problèmes courants
 
-**Erreur de permission sur Linux/macOS** :
-```bash
-# Ajoutez l'utilisateur actuel au groupe docker
-sudo usermod -aG docker $USER
-# Redémarrez votre session
-```
-
 **Problème de montage de volume sur Windows** :
 ```bash
 # Utilisez le chemin Windows complet
-docker run --rm -v "C:/path/to/tests:/robot" robotframework/rfdocker robot tests/
-```
-
-**Tests qui ne trouvent pas les fichiers** :
-```bash
-# Vérifiez le répertoire de travail dans le conteneur
-docker run --rm -v "$(pwd)":/robot -w /robot robotframework/rfdocker robot tests/
+docker run --rm -v "C:/path/to/tests:/robot" marketsquare/robotframework-browser robot tests/
 ```
 
 ## Prochaines étapes
