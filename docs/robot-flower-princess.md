@@ -6,12 +6,14 @@ Bienvenue dans cet exercice ludique où vous allez programmer un robot pour qu'i
 
 À la fin de cet exercice, vous saurez :
 
-- Orchestrer des services avec Docker Compose
+- Utiliser Docker Compose
 - Interagir avec des APIs de jeu en temps réel
-- Implémenter des algorithmes de pathfinding simples
 - Gérer l'état d'un jeu tour par tour
-- Visualiser l'exécution avec une interface web
-- Créer des stratégies de résolution automatisée
+- Implémenter un algorithme de pathfinding simple
+
+## 🕰️ Durée
+
+4h à 8h
 
 ## 🎮 Règles du jeu
 
@@ -46,8 +48,6 @@ Bienvenue dans cet exercice ludique où vous allez programmer un robot pour qu'i
 Créez un fichier `docker-compose.yml` pour orchestrer les services :
 
 ```yaml
-version: '3.8'
-
 services:
   backend:
     image: picardremi/robot-flower-princess:master
@@ -81,6 +81,12 @@ docker-compose ps
 
 # Voir les logs si nécessaire
 docker-compose logs -f
+
+# Redémarrer les services
+docker-compose restart
+
+# Nettoyer et relancer
+docker-compose down && docker-compose up -d
 ```
 
 ### Étape 3 : Vérification
@@ -112,7 +118,6 @@ Créez un fichier `robot_flower_princess.robot` avec la configuration de base.
 
 *** Variables ***
 ${API_BASE_URL}    http://localhost:8000
-${UI_URL}          http://localhost:3000
 
 *** Test Cases ***
 # Vos tests de jeu iront ici
@@ -148,8 +153,8 @@ Créez des fonctions pour comprendre l'état du jeu.
 !!! tip "Indices"
 - Le plateau est une chaîne avec des retours à la ligne. Chaque ligne représente une rangée du plateau.
 - Utilisez `Split String` pour traiter ligne par ligne
+- Utilisez `Split String To Characters` pour récupérer les caractères (pièces) de chaque ligne
 - Stockez les positions comme coordonnées (x, y)
-- La distance de Manhattan peut être utile : |x1-x2| + |y1-y2|
 
 ### Étape 4 : Mouvements de base
 
@@ -163,10 +168,8 @@ Implémentez les actions de base du robot.
 5. Gérez les erreurs d'actions invalides
 
 !!! tip "Indices"
-- Toutes les actions prennent une direction : Haut/Bas/Gauche/Droite (`H` / `B` / `G` / `D)
-- Les actions POST retournent le nouvel état du jeu
+- TOUTES les actions prennent une direction : Haut/Bas/Gauche/Droite (`H` / `B` / `G` / `D`)
 - Vérifiez toujours le statut de la réponse
-- Une erreur 400 indique généralement un mouvement invalide
 
 ### Étape 5 : Navigation intelligente
 
@@ -176,7 +179,6 @@ Implémentez un algorithme pour naviguer vers une destination.
 1. Créez un algorithme de pathfinding simple
 2. Naviguez du robot vers la fleur
 3. Gérez les obstacles (déchets) en les nettoyant
-4. Optimisez le chemin pour éviter les détours inutiles
 
 !!! tip "Indices"
 - Commencez par un algorithme glouton (se rapprocher à chaque étape)
@@ -199,9 +201,8 @@ Implémentez une stratégie complète pour gagner au jeu.
 - Une partie se joue en deux phases : récupérer puis livrer
 - Le robot ne peut pas nettoyer s'il porte la fleur
 - Planifiez le chemin retour avant de récupérer la fleur
-- Gérez les cas où aucun chemin n'est possible
 
-## 🔧 Structure suggérée complète
+## 🔧 Structure minimale du test
 
 ```robot
 *** Settings ***
@@ -212,14 +213,11 @@ Library     Collections
 *** Variables ***
 ${API_BASE_URL}    http://localhost:8000
 ${UI_URL}          http://localhost:3000
-${GAME_ID}         ${EMPTY}
 
 *** Test Cases ***
 Jouer Une Partie Complète
     [Documentation]    Résoudre automatiquement une partie du jeu
-    Créer Session API
     ${game_id}=    Démarrer Nouvelle Partie
-    Set Suite Variable    ${GAME_ID}    ${game_id}
     
     Log To Console    🎮 Partie créée ! Suivez sur ${UI_URL}
     Log To Console    📋 Game ID: ${game_id}
@@ -229,10 +227,6 @@ Jouer Une Partie Complète
     Vérifier Victoire
 
 *** Keywords ***
-Créer Session API
-    [Documentation]    Initialise la session HTTP vers l'API
-    # TODO: Implémenter
-
 Démarrer Nouvelle Partie
     [Documentation]    Crée une nouvelle partie et retourne l'ID
     # TODO: Implémenter
@@ -263,25 +257,15 @@ Vérifier Victoire
 
 ## 🎁 Défis bonus
 
-### Défi 1 : Optimisation
+### Défi 1 : Organisation
+- Ajouter des ressources
+- Utiliser les dataclasses Python 🐍
+
+### Défi 2 : Optimisation
 - Minimisez le nombre de mouvements total
 
-### Défi 2 : Visualisation avancée
-- Enregistrez chaque mouvement avec capture d'écran de l'UI
-
-## 🔍 Debugging et suivi
-
-### Visualisation en temps réel
-```robot
-*** Keywords ***
-Afficher État Partie
-    [Documentation]    Debug helper pour l'état actuel
-    Log To Console    🎮 Suivez la partie sur: ${UI_URL}
-    ${board}=    Récupérer Plateau
-    Log To Console    📋 Plateau actuel:
-    Log To Console    ${board}
-    Log To Console    =====================================
-```
+### Défi 3 : Visualisation avancée
+- Enregistrez chaque mouvement avec capture d'écran de l'UI avec Playwright
 
 ## 📖 API Reference complète
 
@@ -297,10 +281,10 @@ Afficher État Partie
 | POST | `/games/{game_id}/drop` | Déposer la fleur |
 
 ### Paramètres de direction
-- **H** : Haut (North)
-- **B** : Bas (South)
-- **G** : Gauche (West)
-- **D** : Droite (East)
+- **H** : Haut
+- **B** : Bas
+- **G** : Gauche
+- **D** : Droite
 
 ### Codes de plateau
 - **R** : Robot 🤖
@@ -309,50 +293,12 @@ Afficher État Partie
 - **D** : Déchet 🗑️
 - **V** : Vide ⬜
 
-## 💡 Conseils stratégiques
-
-!!! tip "Stratégie recommandée"
-1. **Analyser** le plateau pour localiser tous les éléments
-2. **Planifier** le chemin vers la fleur en nettoyant les obstacles
-3. **Récupérer** la fleur
-4. **Planifier** le chemin vers la princesse (sans pouvoir nettoyer !)
-5. **Livrer** la fleur pour gagner
-
-!!! warning "Pièges courants"
-- Ne pas planifier le chemin retour avant de récupérer la fleur
-- Oublier que le robot ne peut pas nettoyer s'il porte la fleur
-- Ne pas vérifier la validité des mouvements avant de les effectuer
-- Créer des boucles infinies dans les algorithmes de pathfinding
-
 ## 🏆 Validation
 
 Votre exercice est réussi si :
-- ✅ Les services Docker se lancent correctement
 - ✅ Votre robot peut naviguer sur le plateau
+- ✅ Vous avez affiché le plateau de façon claire
 - ✅ Votre robot récupère la fleur automatiquement
 - ✅ Votre robot livre la fleur à la princesse
-- ✅ La partie se termine par une victoire
-
-## 🛠️ Dépannage
-
-### Services Docker
-```bash
-# Redémarrer les services
-docker-compose restart
-
-# Nettoyer et relancer
-docker-compose down && docker-compose up -d
-
-# Voir les logs détaillés
-docker-compose logs robot-flower-api
-docker-compose logs robot-flower-ui
-```
-
-### API non disponible
-```bash
-# Tester la connectivité
-curl http://localhost:8000/docs
-curl http://localhost:3000
-```
 
 Amusez-vous bien avec ce défi ! C'est l'occasion de combiner logique algorithmique et maîtrise de Robot Framework dans un contexte ludique et motivant 🎮🤖🌸
