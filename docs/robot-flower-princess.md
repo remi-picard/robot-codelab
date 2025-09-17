@@ -136,9 +136,9 @@ Implémentez les fonctions de base pour interagir avec l'API de jeu.
 3. Créez un keyword pour récupérer l'état du plateau
 4. Affichez le plateau sous forme lisible
 
-!!! tip "Indices"
-- `POST /games` retourne un JSON avec l'ID de la partie `game_id`
-- `GET /games/{game_id}/board` retourne le plateau sous forme de chaîne.
+??? tip "Afficher les indices"
+    - `POST /games` retourne un JSON avec l'ID de la partie `game_id`
+    - `GET /games/{game_id}/board` retourne le plateau sous forme de chaîne.
 
 ### Étape 3 : Analyser le plateau
 
@@ -150,11 +150,11 @@ Créez des fonctions pour comprendre l'état du jeu.
 3. Créez une représentation interne du plateau
 4. Implémentez une fonction pour calculer la distance entre deux points
 
-!!! tip "Indices"
-- Le plateau est une chaîne avec des retours à la ligne. Chaque ligne représente une rangée du plateau.
-- Utilisez `Split String` pour traiter ligne par ligne
-- Utilisez `Split String To Characters` pour récupérer les caractères (pièces) de chaque ligne
-- Stockez les positions comme coordonnées (x, y)
+??? tip "Afficher les indices"
+    - Le plateau est une chaîne avec des retours à la ligne. Chaque ligne représente une rangée du plateau.
+    - Utilisez `Split String` pour traiter ligne par ligne
+    - Utilisez `Split String To Characters` pour récupérer les caractères (pièces) de chaque ligne
+    - Stockez les positions comme coordonnées (x, y)
 
 ### Étape 4 : Mouvements de base
 
@@ -167,9 +167,9 @@ Implémentez les actions de base du robot.
 4. Créez un keyword pour déposer la fleur
 5. Gérez les erreurs d'actions invalides
 
-!!! tip "Indices"
-- TOUTES les actions prennent une direction : Haut/Bas/Gauche/Droite (`H` / `B` / `G` / `D`)
-- Vérifiez toujours le statut de la réponse
+??? tip "Afficher les indices"
+    - TOUTES les actions prennent une direction : Haut/Bas/Gauche/Droite (`H` / `B` / `G` / `D`)
+    - Vérifiez toujours le statut de la réponse
 
 ### Étape 5 : Navigation intelligente
 
@@ -180,11 +180,11 @@ Implémentez un algorithme pour naviguer vers une destination.
 2. Naviguez du robot vers la fleur
 3. Gérez les obstacles (déchets) en les nettoyant
 
-!!! tip "Indices"
-- Commencez par un algorithme glouton (se rapprocher à chaque étape)
-- Si une case déchet bloque, nettoyez-la d'abord
-- Utilisez une boucle WHILE pour la navigation continue
-- Arrêtez-vous quand vous atteignez la destination
+??? tip "Afficher les indices"
+    - Commencez par un algorithme glouton (se rapprocher à chaque étape)
+    - Si une case déchet bloque, nettoyez-la d'abord
+    - Utilisez une boucle WHILE pour la navigation continue
+    - Arrêtez-vous quand vous atteignez la destination
 
 ### Étape 6 : Stratégie complète
 
@@ -197,10 +197,10 @@ Implémentez une stratégie complète pour gagner au jeu.
 4. Déposez la fleur sur la case princesse
 5. Vérifiez la victoire
 
-!!! tip "Indices"
-- Une partie se joue en deux phases : récupérer puis livrer
-- Le robot ne peut pas nettoyer s'il porte la fleur
-- Planifiez le chemin retour avant de récupérer la fleur
+??? tip "Afficher les indices"
+    - Une partie se joue en deux phases : récupérer puis livrer
+    - Le robot ne peut pas nettoyer s'il porte la fleur
+    - Planifiez le chemin retour avant de récupérer la fleur
 
 ## 🔧 Structure minimale du test
 
@@ -296,6 +296,7 @@ Vérifier Victoire
 ## 🏆 Validation
 
 Votre exercice est réussi si :
+
 - ✅ Votre robot peut naviguer sur le plateau
 - ✅ Vous avez affiché le plateau de façon claire
 - ✅ Votre robot récupère la fleur automatiquement

@@ -39,7 +39,8 @@ Votre première mission est d'installer la librairie nécessaire pour effectuer 
 !!! question "À faire"
 Installez la librairie RequestsLibrary dans votre environnement virtuel.
 
-    **Indice :** Utilisez pip pour installer `robotframework-requests`
+??? tip "Afficher les indices"
+    Utilisez pip pour installer `robotframework-requests`
 
 ### Étape 2 : Configuration de base
 
@@ -93,10 +94,10 @@ Implémentez un test pour créer une nouvelle réservation.
 }
 ```
 
-!!! tip "Indices"
-- Utilisez le mot-clé `POST` pour effectuer la requête
-- Le paramètre `json` permet d'envoyer des données JSON
-- Utilisez `Set Variable` pour stocker l'ID de réservation
+??? tip "Afficher les indices"
+    - Utilisez le mot-clé `POST` pour effectuer la requête
+    - Le paramètre `json` permet d'envoyer des données JSON
+    - Utilisez `Set Variable` pour stocker l'ID de réservation
 
 ### Étape 4 : Récupérer la réservation
 
@@ -109,10 +110,10 @@ Créez un test pour récupérer la réservation que vous venez de créer.
 4. Vérifiez le statut de la réponse
 5. Validez que les données retournées correspondent à celles créées
 
-!!! tip "Indices"
-- Utilisez `GET` pour la requête
-- Vérifiez les valeurs JSON avec des assertions appropriées
-- Pensez à gérer le cas où l'ID n'existe pas
+??? tip "Afficher les indices"
+    - Utilisez `GET` pour la requête
+    - Vérifiez les valeurs JSON avec des assertions appropriées
+    - Pensez à gérer le cas où l'ID n'existe pas
 
 ### Étape 5 : Authentification
 
@@ -132,10 +133,10 @@ Avant de pouvoir modifier ou supprimer une réservation, vous devez vous authent
 }
 ```
 
-!!! tip "Indices"
-- La réponse contient un champ `token`
-- Stockez le token comme variable de test ou de suite
-- Vous utiliserez ce token dans les headers des requêtes suivantes
+??? tip "Afficher les indices"
+    - La réponse contient un champ `token`
+    - Stockez le token comme variable de test ou de suite
+    - Vous utiliserez ce token dans les headers des requêtes suivantes
 
 ### Étape 6 : Modifier la réservation
 
@@ -148,10 +149,10 @@ Implémentez un test pour modifier une réservation existante.
 4. Effectuez une requête PUT avec le token dans les headers
 5. Vérifiez que la modification a réussi
 
-!!! tip "Indices"
-- Utilisez le header `Cookie: token=VOTRE_TOKEN` pour l'authentification
-- Vous pouvez aussi utiliser `Authorization: Basic YWRtaW46cGFzc3dvcmQxMjM=`
-- Modifiez quelques champs comme le prix ou les dates
+??? tip "Afficher les indices"
+    - Utilisez le header `Cookie: token=VOTRE_TOKEN` pour l'authentification
+    - Vous pouvez aussi utiliser `Authorization: Basic YWRtaW46cGFzc3dvcmQxMjM=`
+    - Modifiez quelques champs comme le prix ou les dates
 
 ### Étape 7 : Supprimer la réservation
 

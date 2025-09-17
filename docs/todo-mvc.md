@@ -40,8 +40,7 @@ Votre première mission est d'installer les outils nécessaires pour l'automatis
 1. Installez Browser Library dans votre environnement virtuel
 2. Installez les navigateurs Playwright
 
-    **Indices :** 
-
+??? tip "Afficher les indices"
     - Utilisez `pip install robotframework-browser`
     - Exécutez `rfbrowser init` après l'installation
 
@@ -73,8 +72,8 @@ Créez un fichier `todo_mvc.robot` avec la structure de base.
 # Vos mots-clés personnalisés iront ici
 ```
 
-!!! tip "Indices"
-- Utilisez `New Page` pour initialiser le navigateur
+??? tip "Afficher les indices"
+    - Utilisez `New Page` pour initialiser le navigateur
 
 ### Étape 3 : Créer une tâche
 
@@ -87,16 +86,11 @@ Implémentez un test pour ajouter une nouvelle tâche à la liste.
 4. Appuyez sur Entrée pour valider
 5. Vérifiez que la tâche apparaît dans la liste
 
-!!! tip "Indices"
-- Le champ de saisie a un placeholder "What needs to be done?"
-- Utilisez `Fill Text` pour saisir le texte
-- Utilisez `Keyboard Key` avec "Enter" pour valider
-- Vérifiez la présence de la tâche avec `Get Text` ou `Get Element`
-
-**Capture d'écran pour debug :**
-```robot
-Take Screenshot    nouvelle_tache_creee.png
-```
+??? tip "Afficher les indices"
+    - Le champ de saisie a un placeholder "What needs to be done?"
+    - Utilisez `Fill Text` pour saisir le texte
+    - Utilisez `Keyboard Key` avec "Enter" pour valider
+    - Vérifiez la présence de la tâche avec `Get Text` ou `Get Element`
 
 ### Étape 4 : Lister les tâches
 
@@ -108,11 +102,11 @@ Créez un test pour vérifier que vous pouvez récupérer la liste des tâches e
 3. Vérifiez le nombre de tâches créées
 4. Validez le contenu des tâches
 
-!!! tip "Indices"
-- Les tâches sont dans des éléments `<li>` avec la classe `todo`
-- Utilisez `Get Elements` pour récupérer plusieurs éléments
-- Comptez les éléments avec `Get Length`
-- Parcourez la liste pour vérifier le contenu
+??? tip "Afficher les indices"
+    - Les tâches sont dans des éléments `<li>` avec la classe `todo`
+    - Utilisez `Get Elements` pour récupérer plusieurs éléments
+    - Comptez les éléments avec `Get Length`
+    - Parcourez la liste pour vérifier le contenu
 
 ### Étape 5 : Filtrer les tâches
 
@@ -126,11 +120,11 @@ Implémentez un test pour utiliser les filtres de l'application (All, Active, Co
 5. Testez le filtre "All" (toutes les tâches)
 6. Vérifiez que le bon nombre de tâches est affiché pour chaque filtre
 
-!!! tip "Indices"
-- Les filtres sont des liens en bas de l'application
-- Une tâche est marquée comme terminée en cliquant sur le cercle à gauche
-- Les tâches terminées ont la classe CSS `completed`
-- Utilisez `Click` pour interagir avec les filtres
+??? tip "Afficher les indices"
+    - Les filtres sont des liens en bas de l'application
+    - Une tâche est marquée comme terminée en cliquant sur le cercle à gauche
+    - Les tâches terminées ont la classe CSS `completed`
+    - Utilisez `Click` pour interagir avec les filtres
 
 ### Étape 6 : Terminer une tâche
 
@@ -143,15 +137,10 @@ Créez un test pour marquer une tâche comme terminée et vérifier le changemen
 4. Vérifiez que le texte de la tâche est barré
 5. Testez également le "dé-marquage" d'une tâche terminée
 
-!!! tip "Indices"
-- Le bouton de completion est un `input[type="checkbox"]`
-- Une tâche terminée a un style `text-decoration: line-through`
-- Utilisez des assertions sur les classes CSS ou les styles
-
-**Debug avec capture d'écran :**
-```robot
-Take Screenshot    tache_terminee.png
-```
+??? tip "Afficher les indices"
+    - Le bouton de completion est un `input[type="checkbox"]`
+    - Une tâche terminée a un style `text-decoration: line-through`
+    - Utilisez des assertions sur les classes CSS ou les styles
 
 ### Étape 7 : Supprimer une tâche
 
@@ -164,11 +153,11 @@ Implémentez un test pour supprimer une tâche individuelle.
 4. Vérifiez que la tâche a disparu de la liste
 5. Vérifiez que le compteur de tâches a été mis à jour
 
-!!! tip "Indices"
-- Le bouton de suppression n'apparaît qu'au survol (`hover`)
-- Utilisez `Hover` pour déclencher l'affichage du bouton
-- Le bouton a généralement une classe comme `destroy`
-- Vérifiez l'absence avec des assertions négatives
+??? tip "Afficher les indices"
+    - Le bouton de suppression n'apparaît qu'au survol (`hover`)
+    - Utilisez `Hover` pour déclencher l'affichage du bouton
+    - Le bouton a généralement une classe comme `destroy`
+    - Vérifiez l'absence avec des assertions négatives
 
 ### Étape 8 : Supprimer toutes les tâches terminées
 
@@ -181,10 +170,10 @@ Créez un test pour utiliser la fonction "Clear completed".
 4. Vérifiez que seules les tâches terminées ont été supprimées
 5. Vérifiez que les tâches actives restent présentes
 
-!!! tip "Indices"
-- Le bouton "Clear completed" n'apparaît que s'il y a des tâches terminées
-- Comptez les tâches avant et après l'opération
-- Vérifiez que les tâches restantes sont toutes actives
+??? tip "Afficher les indices"
+    - Le bouton "Clear completed" n'apparaît que s'il y a des tâches terminées
+    - Comptez les tâches avant et après l'opération
+    - Vérifiez que les tâches restantes sont toutes actives
 
 ## 🔧 Structure suggérée du fichier
 
@@ -263,12 +252,12 @@ Si vous terminez rapidement, essayez ces défis supplémentaires :
 # Capture d'écran pour debug
 Take Screenshot    debug_step_${TEST_NAME}.png
 
-    # Pause pour inspection manuelle
-    Pause Execution    Inspectez l'état current
+# Pause pour inspection manuelle
+Pause Execution    Inspectez l'état current
     
-    # Log des éléments trouvés
-    ${elements}=    Get Elements    css=.todo
-    Log    Nombre d'éléments trouvés: ${elements.length}
+# Log des éléments trouvés
+${elements}=    Get Elements    css=.todo
+Log    Nombre d'éléments trouvés: ${elements.length}
 ```
 
 !!! warning "Points d'attention"
