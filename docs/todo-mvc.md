@@ -20,7 +20,7 @@ Dans cet exercice pratique, vous allez apprendre à automatiser les tests d'inte
 ## 🌐 Application à tester
 
 Nous utiliserons l'application TODO MVC React disponible à l'adresse :
-[https://todomvc.com/examples/react/dist](https://todomvc.com/examples/react/dist)
+[https://todomvc.com/examples/react/dist](https://todomvc.com/examples/react/dist){target="_blank"}
 
 Cette application permet de :
 
@@ -269,10 +269,10 @@ Log    Nombre d'éléments trouvés: ${elements.length}
 
 ## 📖 Ressources utiles
 
-- [Browser Library](https://marketsquare.github.io/robotframework-browser/Browser.html)
-- [Playwright](https://playwright.dev/docs/intro)
-- [Guide des sélecteurs CSS](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors)
-- [Exemples / Comparaison](https://robotframework-browser.org/#examples)
+- [Browser Library](https://marketsquare.github.io/robotframework-browser/Browser.html){target="_blank"}
+- [Playwright](https://playwright.dev/docs/intro){target="_blank"}
+- [Guide des sélecteurs CSS](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors){target="_blank"}
+- [Exemples / Comparaison](https://robotframework-browser.org/#examples){target="_blank"}
 
 ## 🛠️ Sélecteurs utiles
 

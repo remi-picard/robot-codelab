@@ -18,9 +18,9 @@ Dans cet exercice pratique, vous allez apprendre à tester une API REST avec Rob
 
 ## 📚 Documentation de l'API
 
-L'API Booker est disponible à l'adresse : [https://restful-booker.herokuapp.com/](https://restful-booker.herokuapp.com/)
+L'API Booker est disponible à l'adresse : [https://restful-booker.herokuapp.com/](https://restful-booker.herokuapp.com/){target="_blank"}
 
-Documentation complète : [https://restful-booker.herokuapp.com/apidoc/index.html](https://restful-booker.herokuapp.com/apidoc/index.html)
+Documentation complète : [https://restful-booker.herokuapp.com/apidoc/index.html](https://restful-booker.herokuapp.com/apidoc/index.html){target="_blank"}
 
 ### Endpoints principaux
 - **GET /booking** - Liste toutes les réservations
@@ -221,7 +221,7 @@ Si vous terminez rapidement, essayez ces défis supplémentaires :
 !!! tip "Bonnes pratiques"
 - Testez chaque étape individuellement avant de les combiner
 - Utilisez `Log` et `Log To Console` pour déboguer
-- Consultez la documentation de RequestsLibrary : [https://marketsquare.github.io/robotframework-requests/doc/RequestsLibrary.html](https://marketsquare.github.io/robotframework-requests/doc/RequestsLibrary.html)
+- Consultez la documentation de RequestsLibrary
 - Vérifiez les réponses HTTP avec les status codes appropriés
 
 !!! warning "Points d'attention"
@@ -231,9 +231,9 @@ Si vous terminez rapidement, essayez ces défis supplémentaires :
 
 ## 📖 Ressources utiles
 
-- [RequestsLibrary](https://marketsquare.github.io/robotframework-requests/doc/RequestsLibrary.html)
-- [BuiltIn](https://robotframework.org/robotframework/latest/libraries/BuiltIn.html)
-- [Collections](https://robotframework.org/robotframework/latest/libraries/Collections.html)
+- [RequestsLibrary](https://marketsquare.github.io/robotframework-requests/doc/RequestsLibrary.html){target="_blank"}
+- [BuiltIn](https://robotframework.org/robotframework/latest/libraries/BuiltIn.html){target="_blank"}
+- [Collections](https://robotframework.org/robotframework/latest/libraries/Collections.html){target="_blank"}
 
 ## 🏆 Validation
 

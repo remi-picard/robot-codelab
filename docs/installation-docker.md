@@ -6,8 +6,8 @@ Docker offre une méthode simple et portable pour utiliser Robot Framework sans 
 
 Assurez-vous d'avoir Docker installé sur votre système :
 
-- **Windows/macOS** : [Docker Desktop](https://www.docker.com/products/docker-desktop)
-- **Linux** : [Docker Engine](https://docs.docker.com/engine/install/)
+- **Windows/macOS** : [Docker Desktop](https://www.docker.com/products/docker-desktop){target="_blank"}
+- **Linux** : [Docker Engine](https://docs.docker.com/engine/install/){target="_blank"}
 
 Vérifiez l'installation :
 ```bash
@@ -18,7 +18,7 @@ docker --version
 
 ### Téléchargement
 
-L'image `marketsquare/robotframework-browser`, citée dans la [documentation officielle](https://docs.robotframework.org/docs/using_rf_in_ci_systems/docker#popular-docker-images-for-robot-framework), contient Robot Framework avec quelques librairies pré-installées.
+L'image `marketsquare/robotframework-browser`, citée dans la [documentation officielle](https://docs.robotframework.org/docs/using_rf_in_ci_systems/docker#popular-docker-images-for-robot-framework){target="_blank"}, contient Robot Framework avec quelques librairies pré-installées.
 
 ```bash
 # Télécharger l'image

@@ -93,8 +93,8 @@ docker-compose down && docker-compose up -d
 
 Une fois les services démarrés, vérifiez l'accès :
 
-- 📖 **API Swagger** : [http://localhost:8000/docs](http://localhost:8000/docs)
-- 🎮 **Interface de jeu** : [http://localhost:3000](http://localhost:3000)
+- 📖 **API Swagger** : [http://localhost:8000/docs](http://localhost:8000/docs){target="_blank"}
+- 🎮 **Interface de jeu** : [http://localhost:3000](http://localhost:3000){target="_blank"}
 
 !!! tip "Conseil de débogage"
 Utilisez l'interface web pour suivre visuellement l'avancement de votre partie pendant que Robot Framework joue !

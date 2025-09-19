@@ -6,7 +6,7 @@ Pour améliorer votre productivité lors du développement de tests Robot Framew
 
 PyCharm offre un excellent support pour Robot Framework avec des plugins dédiés.
 
-Suivez les étapes présentées par [Set up your IDE](https://docs.robotframework.org/docs/getting_started/ide#pycharm).
+Suivez les étapes présentées par [Set up your IDE](https://docs.robotframework.org/docs/getting_started/ide#pycharm){target="_blank"}.
 
 En résumé :
 
@@ -17,7 +17,7 @@ En résumé :
 Ne pas installer `Robot Framework Language Server` qui n'est pas compatible Robot Framework 7+
 
 !!! info "Autre plugin à tester"
-[Robot Code](https://plugins.jetbrains.com/plugin/26216-robotcode--robot-framework-support) sortie en 2025
+[Robot Code](https://plugins.jetbrains.com/plugin/26216-robotcode--robot-framework-support){target="_blank"} sortie en 2025
 
 
 ### Fonctionnalités disponibles dans PyCharm
@@ -37,12 +37,12 @@ Ne pas installer `Robot Framework Language Server` qui n'est pas compatible Robo
 
 VSCode avec les bonnes extensions offre une excellente expérience de développement pour Robot Framework.
 
-Suivez les étapes présentées par [Set up your IDE](https://docs.robotframework.org/docs/getting_started/ide#visual-studio-code).
+Suivez les étapes présentées par [Set up your IDE](https://docs.robotframework.org/docs/getting_started/ide#visual-studio-code){target="_blank"}.
 
 En résumé :
 
-- Installer [VS Code](https://code.visualstudio.com)
-- Installer l'extension [Robot Code](https://marketplace.visualstudio.com/items?itemName=d-biehl.robotcode)
+- Installer [VS Code](https://code.visualstudio.com){target="_blank"}
+- Installer l'extension [Robot Code](https://marketplace.visualstudio.com/items?itemName=d-biehl.robotcode){target="_blank"}
 
 !!! warning "Choisir le bon plugin"
 Ne pas installer `Robot Framework Language Server` qui n'est pas compatible Robot Framework 7+
@@ -93,7 +93,7 @@ Créez le fichier `.vscode/robotframework.code-snippets` :
 }
 ```
 
-Pour utiliser ces [snippets](https://code.visualstudio.com/docs/editing/userdefinedsnippets) : actionnez l'IntelliSense (`Ctrl+Space` ou `⌃Space`).
+Pour utiliser ces [snippets](https://code.visualstudio.com/docs/editing/userdefinedsnippets){target="_blank"} : actionnez l'IntelliSense (`Ctrl+Space` ou `⌃Space`).
 
 ---
 
