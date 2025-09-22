@@ -20,8 +20,8 @@ Robot Framework est un framework de test d'automatisation générique, open sour
 
 Avant de commencer, assurez-vous d'avoir :
 
-- Python 3.6 ou version supérieure installé
-- Un éditeur de texte ou IDE de votre choix
+- Python 3.8 ou version supérieure installé
+- Un éditeur de texte ou IDE de votre choix (PyCharm ou VSCode)
 - Des connaissances de base en ligne de commande
 
 ## Structure du codelab

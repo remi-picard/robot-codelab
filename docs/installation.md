@@ -63,6 +63,7 @@ robot --version
 Félicitations ! Votre environnement Robot Framework est maintenant prêt.
 
 **Alternatives d'installation :**
+
 - Si vous préférez utiliser Docker, consultez la page [Installation avec Docker](installation-docker.md)
 - Sinon, continuez avec la [création de votre premier test](hello-world.md)
 
