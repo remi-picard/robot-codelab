@@ -37,12 +37,16 @@ Cette application permet de :
 Votre première mission est d'installer les outils nécessaires pour l'automatisation web moderne.
 
 !!! question "À faire"
-1. Installez Browser Library dans votre environnement virtuel
-2. Installez les navigateurs Playwright
+1. Installez Node
+2. Ajoutez `strict-ssl=false` dans le fichier `~/.npmrc` pour bypasser la vérification
+3. Installez Browser Library dans votre environnement virtuel
+4. Installez les navigateurs Playwright
 
 ??? tip "Afficher les indices"
     - Utilisez `pip install robotframework-browser`
-    - Exécutez `rfbrowser init` après l'installation
+    - Exécutez `rfbrowser init` après l'installation (chromium étant bloqué)
+    - Exécutez `rfbrowser init firefox` si chromium est bloqué
+    - Utilisez le Keyword  `Open Browser` ou `Open Browser  browser=firefox`
 
 !!! warning "Note importante"
 L'installation de Playwright peut prendre plusieurs minutes car elle télécharge les navigateurs.

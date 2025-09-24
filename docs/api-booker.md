@@ -49,7 +49,6 @@ Créez un fichier `booker.robot` avec la structure de base.
 !!! question "À faire"
 1. Importez la RequestsLibrary dans la section `*** Settings ***`
 2. Définissez l'URL de base de l'API comme variable
-3. Créez une session HTTP réutilisable
 
 **Structure suggérée :**
 
@@ -97,14 +96,15 @@ Implémentez un test pour créer une nouvelle réservation.
 ??? tip "Afficher les indices"
     - Utilisez le mot-clé `POST` pour effectuer la requête
     - Le paramètre `json` permet d'envoyer des données JSON
+    - Le paramètre `verify=${False}` permet de bypasser la vérification du certificat SSL
     - Utilisez `Set Variable` pour stocker l'ID de réservation
 
 ### Étape 4 : Récupérer la réservation
 
-Créez un test pour récupérer la réservation que vous venez de créer.
+Compléter le test précédent pour récupérer la réservation que vous venez de créer.
 
 !!! question "À faire"
-1. Créez un test case nommé `Récupérer La Réservation`
+1. Renommez le test `Créer Une Nouvelle Réservation` en `Créer Et Récupérer Une Réservation`
 2. Utilisez l'ID de réservation stocké précédemment
 3. Effectuez une requête GET vers `/booking/{id}`
 4. Vérifiez le statut de la réponse
@@ -143,7 +143,7 @@ Avant de pouvoir modifier ou supprimer une réservation, vous devez vous authent
 Implémentez un test pour modifier une réservation existante.
 
 !!! question "À faire"
-1. Créez un test case `Modifier La Réservation`
+1. Renommez le test case `Créer Et Récupérer Une Réservation` en `Créer Récupérer Et Modifier Une Réservation`
 2. Obtenez d'abord un token d'authentification
 3. Définissez de nouvelles données de réservation
 4. Effectuez une requête PUT avec le token dans les headers
@@ -159,7 +159,7 @@ Implémentez un test pour modifier une réservation existante.
 Créez un test pour supprimer la réservation.
 
 !!! question "À faire"
-1. Créez un test case `Supprimer La Réservation`
+1. Renommez le test case `Créer Récupérer Et Modifier Une Réservation` en `Créer Récupérer Modifier Et Supprimer Une Réservation`
 2. Utilisez l'authentification (token ou Basic Auth)
 3. Effectuez une requête DELETE
 4. Vérifiez que la suppression a réussi (statut 201)
@@ -186,10 +186,6 @@ Test Complet API Booker
     Supprimer La Réservation
 
 *** Keywords ***
-Créer Une Session HTTP
-    [Documentation]    Initialise la session HTTP
-    # TODO: Implémenter
-
 Créer Une Nouvelle Réservation
     [Documentation]    Crée une nouvelle réservation via POST
     # TODO: Implémenter
@@ -221,17 +217,16 @@ Si vous terminez rapidement, essayez ces défis supplémentaires :
 !!! tip "Bonnes pratiques"
 - Testez chaque étape individuellement avant de les combiner
 - Utilisez `Log` et `Log To Console` pour déboguer
-- Consultez la documentation de RequestsLibrary
+- Consultez la documentation de RequestsLibrary, notamment le Keyword `GET où sont documentés les arguments `**kwargs`
 - Vérifiez les réponses HTTP avec les status codes appropriés
 
 !!! warning "Points d'attention"
 - L'API Booker est parfois lente, ajoutez des timeouts si nécessaire
 - Les IDs de réservation sont temporaires et peuvent être supprimés
-- Gérez les erreurs de réseau potentielles
 
 ## 📖 Ressources utiles
 
-- [RequestsLibrary](https://marketsquare.github.io/robotframework-requests/doc/RequestsLibrary.html){target="_blank"}
+- [RequestsLibrary](https://marketsquare.github.io/robotframework-requests/doc/RequestsLibrary.html#GET){target="_blank"}
 - [BuiltIn](https://robotframework.org/robotframework/latest/libraries/BuiltIn.html){target="_blank"}
 - [Collections](https://robotframework.org/robotframework/latest/libraries/Collections.html){target="_blank"}
 
