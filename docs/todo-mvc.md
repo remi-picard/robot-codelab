@@ -46,7 +46,6 @@ Votre première mission est d'installer les outils nécessaires pour l'automatis
     - Utilisez `pip install robotframework-browser`
     - Exécutez `rfbrowser init` après l'installation (chromium étant bloqué)
     - Exécutez `rfbrowser init firefox` si chromium est bloqué
-    - Utilisez le Keyword  `Open Browser` ou `Open Browser  browser=firefox`
 
 !!! warning "Note importante"
 L'installation de Playwright peut prendre plusieurs minutes car elle télécharge les navigateurs.
@@ -77,7 +76,8 @@ Créez un fichier `todo_mvc.robot` avec la structure de base.
 ```
 
 ??? tip "Afficher les indices"
-    - Utilisez `New Page` pour initialiser le navigateur
+    - Utilisez le Keyword  `Open Browser` ou `Open Browser  browser=firefox` pour ouvrir le navigateur
+    - Utilisez `New Page` pour ouvrir une page
 
 ### Étape 3 : Créer une tâche
 
