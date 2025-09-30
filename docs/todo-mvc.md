@@ -37,9 +37,9 @@ Cette application permet de :
 Votre première mission est d'installer les outils nécessaires pour l'automatisation web moderne.
 
 !!! question "À faire"
-1. Installez Node
-2. Ajoutez `strict-ssl=false` dans le fichier `~/.npmrc` pour bypasser la vérification
-3. Installez Browser Library dans votre environnement virtuel
+1. Installez [Node.js](https://nodejs.org){target="_blank"}
+2. Ajoutez `strict-ssl=false` dans le fichier `~/.npmrc` pour bypasser la vérification SSL
+3. Installez [Browser Library](https://robotframework-browser.org/#installation){target="_blank"} dans votre environnement virtuel
 4. Installez les navigateurs Playwright
 
 ??? tip "Afficher les indices"

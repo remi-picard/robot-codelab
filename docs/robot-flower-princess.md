@@ -74,19 +74,23 @@ networks:
 
 ```bash
 # Démarrer les services
-docker-compose up -d
+docker compose up -d
+```
 
+En cas de problème :
+
+```bash
 # Vérifier que les services sont en cours d'exécution
-docker-compose ps
+docker compose ps
 
 # Voir les logs si nécessaire
-docker-compose logs -f
+docker compose logs -f
 
 # Redémarrer les services
-docker-compose restart
+docker compose restart
 
 # Nettoyer et relancer
-docker-compose down && docker-compose up -d
+docker compose down && docker compose up -d
 ```
 
 ### Étape 3 : Vérification
@@ -108,8 +112,7 @@ Créez un fichier `robot_flower_princess.robot` avec la configuration de base.
 !!! question "À faire"
 1. Importez RequestsLibrary
 2. Définissez l'URL de base de l'API
-3. Créez une session HTTP
-4. Testez la connexion à l'API
+3. Testez la connexion à l'API
 
 **Structure suggérée :**
 ```robot

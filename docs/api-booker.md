@@ -179,7 +179,6 @@ ${BOOKING_ID}  # Sera défini dynamiquement
 *** Test Cases ***
 Test Complet API Booker
     [Documentation]    Test complet du cycle de vie d'une réservation
-    Créer Une Session HTTP
     Créer Une Nouvelle Réservation
     Récupérer La Réservation
     Modifier La Réservation
@@ -217,7 +216,7 @@ Si vous terminez rapidement, essayez ces défis supplémentaires :
 !!! tip "Bonnes pratiques"
 - Testez chaque étape individuellement avant de les combiner
 - Utilisez `Log` et `Log To Console` pour déboguer
-- Consultez la documentation de RequestsLibrary, notamment le Keyword `GET où sont documentés les arguments `**kwargs`
+- Consultez la documentation de RequestsLibrary, notamment le Keyword `GET` où sont documentés les arguments `**kwargs`
 - Vérifiez les réponses HTTP avec les status codes appropriés
 
 !!! warning "Points d'attention"
