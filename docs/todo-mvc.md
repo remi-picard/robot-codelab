@@ -43,12 +43,30 @@ Votre première mission est d'installer les outils nécessaires pour l'automatis
 4. Installez les navigateurs Playwright
 
 ??? tip "Afficher les indices"
-    - Utilisez `pip install robotframework-browser`
-    - Exécutez `rfbrowser init` après l'installation (chromium étant bloqué)
+    - Utilisez `pip install robotframework-browser==19.7.2`
+    - Exécutez `rfbrowser init` pour installer le navigateur
     - Exécutez `rfbrowser init firefox` si chromium est bloqué
 
 !!! warning "Note importante"
 L'installation de Playwright peut prendre plusieurs minutes car elle télécharge les navigateurs.
+
+??? info "Dépannage 🐳"
+    Si l'installation ne fonctionne pas, il est possible d'utiliser Docker avec un navigateur headless
+    ```bash
+    docker run -it --rm --ipc=host -v $(pwd):/test --user pwuser -w /test marketsquare/robotframework-browser:latest robot -P. -t "Test Headless In Docker" .
+    ```
+    
+    Sur Windows, remplacer `$(pwd)` par le chemin de votre projet
+    
+    ```robot
+    Test Headless In Docker
+        New Browser
+        # Décommenter en cas de problème SSL
+        # New Context    ignoreHTTPSErrors=${True}
+        New Page    https://todomvc.com/examples/react/dist/
+        Take Screenshot
+    ```
+    L'utilisation de capture d'écran permet de voir l'avancement du navigateur headless.
 
 ### Étape 2 : Configuration de base et premier test
 
