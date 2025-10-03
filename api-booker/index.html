@@ -1,0 +1,1050 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Guide d'apprentissage de Robot Framework">
+      
+      
+        <meta name="author" content="Rémi PICARD">
+      
+      
+      
+        <link rel="prev" href="../configuration-ide/">
+      
+      
+        <link rel="next" href="../todo-mvc/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.7">
+    
+    
+      
+        <title>API Booker - Codelab Robot Framework</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.4b4a2bd9.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.356b1318.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#test-de-lapi-booker" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href=".." title="Codelab Robot Framework" class="md-header__button md-logo" aria-label="Codelab Robot Framework" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Codelab Robot Framework
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              API Booker
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Passer au mode sombre"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Passer au mode sombre" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Passer au mode clair"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Passer au mode clair" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Rechercher" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Recherche">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Effacer" aria-label="Effacer" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initialisation de la recherche
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Onglets" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+    
+  
+  Accueil
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../installation/" class="md-tabs__link">
+        
+  
+    
+  
+  Install
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../installation-docker/" class="md-tabs__link">
+        
+  
+    
+  
+  Install Docker
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../hello-world/" class="md-tabs__link">
+        
+  
+    
+  
+  Hello World
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../configuration-ide/" class="md-tabs__link">
+        
+  
+    
+  
+  Conf IDE
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+    
+  
+  API Booker
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../todo-mvc/" class="md-tabs__link">
+        
+  
+    
+  
+  TODO MVC
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../robot-flower-princess/" class="md-tabs__link">
+        
+  
+    
+  
+  Jeu (RPA)
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Codelab Robot Framework" class="md-nav__button md-logo" aria-label="Codelab Robot Framework" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Codelab Robot Framework
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Accueil
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Install
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation-docker/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Install Docker
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hello-world/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hello World
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration-ide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Conf IDE
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    API Booker
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    API Booker
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objectifs" class="md-nav__link">
+    🎯 Objectifs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#duree" class="md-nav__link">
+    🕰️ Durée
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentation-de-lapi" class="md-nav__link">
+    📚 Documentation de l'API
+  </a>
+  
+    <nav class="md-nav" aria-label="📚 Documentation de l'API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#endpoints-principaux" class="md-nav__link">
+    Endpoints principaux
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercices-a-realiser" class="md-nav__link">
+    📋 Exercices à réaliser
+  </a>
+  
+    <nav class="md-nav" aria-label="📋 Exercices à réaliser">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#etape-1-installation-de-requestslibrary" class="md-nav__link">
+    Étape 1 : Installation de RequestsLibrary
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-2-configuration-de-base" class="md-nav__link">
+    Étape 2 : Configuration de base
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-3-creer-une-reservation" class="md-nav__link">
+    Étape 3 : Créer une réservation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-4-recuperer-la-reservation" class="md-nav__link">
+    Étape 4 : Récupérer la réservation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-5-authentification" class="md-nav__link">
+    Étape 5 : Authentification
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-6-modifier-la-reservation" class="md-nav__link">
+    Étape 6 : Modifier la réservation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-7-supprimer-la-reservation" class="md-nav__link">
+    Étape 7 : Supprimer la réservation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#structure-suggeree-du-fichier" class="md-nav__link">
+    🔧 Structure suggérée du fichier
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bonus-optionnel" class="md-nav__link">
+    🎁 Bonus (optionnel)
+  </a>
+  
+    <nav class="md-nav" aria-label="🎁 Bonus (optionnel)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#defi-1-tests-negatifs" class="md-nav__link">
+    Défi 1 : Tests négatifs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defi-2-reutilisabilite" class="md-nav__link">
+    Défi 2 : Réutilisabilité
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defi-3-validation-avancee" class="md-nav__link">
+    Défi 3 : Validation avancée
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conseils-pour-reussir" class="md-nav__link">
+    💡 Conseils pour réussir
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ressources-utiles" class="md-nav__link">
+    📖 Ressources utiles
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validation" class="md-nav__link">
+    🏆 Validation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prochaines-etapes" class="md-nav__link">
+    Prochaines étapes
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../todo-mvc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TODO MVC
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../robot-flower-princess/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Jeu (RPA)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="test-de-lapi-booker">Test de l'API Booker<a class="headerlink" href="#test-de-lapi-booker" title="Permanent link">&para;</a></h1>
+<p>Dans cet exercice pratique, vous allez apprendre à tester une API REST avec Robot Framework en utilisant l'API Booker, une API de démonstration pour la gestion de réservations d'hôtel.</p>
+<h2 id="objectifs">🎯 Objectifs<a class="headerlink" href="#objectifs" title="Permanent link">&para;</a></h2>
+<p>À la fin de cet exercice, vous saurez :</p>
+<ul>
+<li>Installer et utiliser la RequestsLibrary</li>
+<li>Effectuer des requêtes HTTP (GET, POST, PUT, DELETE)</li>
+<li>Gérer l'authentification API</li>
+<li>Valider les réponses JSON</li>
+<li>Organiser vos tests API</li>
+</ul>
+<h2 id="duree">🕰️ Durée<a class="headerlink" href="#duree" title="Permanent link">&para;</a></h2>
+<p>1h à 1h30</p>
+<h2 id="documentation-de-lapi">📚 Documentation de l'API<a class="headerlink" href="#documentation-de-lapi" title="Permanent link">&para;</a></h2>
+<p>L'API Booker est disponible à l'adresse : <a href="https://restful-booker.herokuapp.com/" target="_blank">https://restful-booker.herokuapp.com/</a></p>
+<p>Documentation complète : <a href="https://restful-booker.herokuapp.com/apidoc/index.html" target="_blank">https://restful-booker.herokuapp.com/apidoc/index.html</a></p>
+<h3 id="endpoints-principaux">Endpoints principaux<a class="headerlink" href="#endpoints-principaux" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>GET /booking</strong> - Liste toutes les réservations</li>
+<li><strong>POST /booking</strong> - Crée une nouvelle réservation</li>
+<li><strong>GET /booking/{id}</strong> - Récupère une réservation spécifique</li>
+<li><strong>PUT /booking/{id}</strong> - Met à jour une réservation (authentification requise)</li>
+<li><strong>DELETE /booking/{id}</strong> - Supprime une réservation (authentification requise)</li>
+<li><strong>POST /auth</strong> - Génère un token d'authentification</li>
+</ul>
+<h2 id="exercices-a-realiser">📋 Exercices à réaliser<a class="headerlink" href="#exercices-a-realiser" title="Permanent link">&para;</a></h2>
+<h3 id="etape-1-installation-de-requestslibrary">Étape 1 : Installation de RequestsLibrary<a class="headerlink" href="#etape-1-installation-de-requestslibrary" title="Permanent link">&para;</a></h3>
+<p>Votre première mission est d'installer la librairie nécessaire pour effectuer des requêtes HTTP.</p>
+<div class="admonition question">
+<p class="admonition-title">À faire</p>
+</div>
+<p>Installez la librairie RequestsLibrary dans votre environnement virtuel.</p>
+<details class="tip">
+<summary>Afficher les indices</summary>
+<p>Utilisez pip pour installer <code>robotframework-requests</code></p>
+</details>
+<h3 id="etape-2-configuration-de-base">Étape 2 : Configuration de base<a class="headerlink" href="#etape-2-configuration-de-base" title="Permanent link">&para;</a></h3>
+<p>Créez un fichier <code>booker.robot</code> avec la structure de base.</p>
+<div class="admonition question">
+<p class="admonition-title">À faire</p>
+</div>
+<ol>
+<li>Importez la RequestsLibrary dans la section <code>*** Settings ***</code></li>
+<li>Définissez l'URL de base de l'API comme variable</li>
+</ol>
+<p><strong>Structure suggérée :</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>*** Settings ***
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a># TODO: Importer la librairie nécessaire
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>*** Variables ***
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a># TODO: Définir l&#39;URL de base de l&#39;API
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>*** Test Cases ***
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a># Vos tests iront ici
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>*** Keywords ***
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a># Vos Keywords personnalisés iront ici
+</code></pre></div>
+<h3 id="etape-3-creer-une-reservation">Étape 3 : Créer une réservation<a class="headerlink" href="#etape-3-creer-une-reservation" title="Permanent link">&para;</a></h3>
+<p>Implémentez un test pour créer une nouvelle réservation.</p>
+<div class="admonition question">
+<p class="admonition-title">À faire</p>
+</div>
+<ol>
+<li>Créez un test case nommé <code>Créer Une Nouvelle Réservation</code></li>
+<li>Définissez les données de réservation (nom, prénom, prix total, etc.)</li>
+<li>Effectuez une requête POST vers <code>/booking</code></li>
+<li>Vérifiez que la réponse a un statut 200</li>
+<li>Vérifiez que la réponse contient un <code>bookingid</code></li>
+<li>Stockez l'ID de réservation pour les tests suivants</li>
+</ol>
+<p><strong>Données de test suggérées :</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">{</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="nt">&quot;firstname&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;John&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="nt">&quot;lastname&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Doe&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="nt">&quot;totalprice&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">150</span><span class="p">,</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="nt">&quot;depositpaid&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="nt">&quot;bookingdates&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">        </span><span class="nt">&quot;checkin&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-01-01&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">        </span><span class="nt">&quot;checkout&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-01-03&quot;</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">    </span><span class="nt">&quot;additionalneeds&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Breakfast&quot;</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="p">}</span>
+</code></pre></div></p>
+<details class="tip">
+<summary>Afficher les indices</summary>
+<ul>
+<li>Utilisez le mot-clé <code>POST</code> pour effectuer la requête</li>
+<li>Le paramètre <code>json</code> permet d'envoyer des données JSON</li>
+<li>Le paramètre <code>verify=${False}</code> permet de bypasser la vérification du certificat SSL</li>
+<li>Utilisez <code>Set Variable</code> pour stocker l'ID de réservation</li>
+</ul>
+</details>
+<h3 id="etape-4-recuperer-la-reservation">Étape 4 : Récupérer la réservation<a class="headerlink" href="#etape-4-recuperer-la-reservation" title="Permanent link">&para;</a></h3>
+<p>Compléter le test précédent pour récupérer la réservation que vous venez de créer.</p>
+<div class="admonition question">
+<p class="admonition-title">À faire</p>
+</div>
+<ol>
+<li>Renommez le test <code>Créer Une Nouvelle Réservation</code> en <code>Créer Et Récupérer Une Réservation</code></li>
+<li>Utilisez l'ID de réservation stocké précédemment</li>
+<li>Effectuez une requête GET vers <code>/booking/{id}</code></li>
+<li>Vérifiez le statut de la réponse</li>
+<li>Validez que les données retournées correspondent à celles créées</li>
+</ol>
+<details class="tip">
+<summary>Afficher les indices</summary>
+<ul>
+<li>Utilisez <code>GET</code> pour la requête</li>
+<li>Vérifiez les valeurs JSON avec des assertions appropriées</li>
+<li>Pensez à gérer le cas où l'ID n'existe pas</li>
+</ul>
+</details>
+<h3 id="etape-5-authentification">Étape 5 : Authentification<a class="headerlink" href="#etape-5-authentification" title="Permanent link">&para;</a></h3>
+<p>Avant de pouvoir modifier ou supprimer une réservation, vous devez vous authentifier.</p>
+<div class="admonition question">
+<p class="admonition-title">À faire</p>
+</div>
+<ol>
+<li>Créez un keyword <code>Obtenir Token Authentification</code></li>
+<li>Effectuez une requête POST vers <code>/auth</code> avec les credentials</li>
+<li>Récupérez le token depuis la réponse</li>
+<li>Stockez le token pour les requêtes suivantes</li>
+</ol>
+<p><strong>Credentials par défaut :</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">{</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="nt">&quot;username&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;admin&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="nt">&quot;password&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;password123&quot;</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="p">}</span>
+</code></pre></div></p>
+<details class="tip">
+<summary>Afficher les indices</summary>
+<ul>
+<li>La réponse contient un champ <code>token</code></li>
+<li>Stockez le token comme variable de test ou de suite</li>
+<li>Vous utiliserez ce token dans les headers des requêtes suivantes</li>
+</ul>
+</details>
+<h3 id="etape-6-modifier-la-reservation">Étape 6 : Modifier la réservation<a class="headerlink" href="#etape-6-modifier-la-reservation" title="Permanent link">&para;</a></h3>
+<p>Implémentez un test pour modifier une réservation existante.</p>
+<div class="admonition question">
+<p class="admonition-title">À faire</p>
+</div>
+<ol>
+<li>Renommez le test case <code>Créer Et Récupérer Une Réservation</code> en <code>Créer Récupérer Et Modifier Une Réservation</code></li>
+<li>Obtenez d'abord un token d'authentification</li>
+<li>Définissez de nouvelles données de réservation</li>
+<li>Effectuez une requête PUT avec le token dans les headers</li>
+<li>Vérifiez que la modification a réussi</li>
+</ol>
+<details class="tip">
+<summary>Afficher les indices</summary>
+<ul>
+<li>Utilisez le header <code>Cookie: token=VOTRE_TOKEN</code> pour l'authentification</li>
+<li>Vous pouvez aussi utiliser <code>Authorization: Basic YWRtaW46cGFzc3dvcmQxMjM=</code></li>
+<li>Modifiez quelques champs comme le prix ou les dates</li>
+</ul>
+</details>
+<h3 id="etape-7-supprimer-la-reservation">Étape 7 : Supprimer la réservation<a class="headerlink" href="#etape-7-supprimer-la-reservation" title="Permanent link">&para;</a></h3>
+<p>Créez un test pour supprimer la réservation.</p>
+<div class="admonition question">
+<p class="admonition-title">À faire</p>
+</div>
+<ol>
+<li>Renommez le test case <code>Créer Récupérer Et Modifier Une Réservation</code> en <code>Créer Récupérer Modifier Et Supprimer Une Réservation</code></li>
+<li>Utilisez l'authentification (token ou Basic Auth)</li>
+<li>Effectuez une requête DELETE</li>
+<li>Vérifiez que la suppression a réussi (statut 201)</li>
+<li>Tentez de récupérer la réservation pour confirmer qu'elle n'existe plus</li>
+</ol>
+<h2 id="structure-suggeree-du-fichier">🔧 Structure suggérée du fichier<a class="headerlink" href="#structure-suggeree-du-fichier" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>*** Settings ***
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>Library     RequestsLibrary
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a># TODO: Autres imports si nécessaires
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>*** Variables ***
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>${BASE_URL}    # TODO: URL de l&#39;API
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>${BOOKING_ID}  # Sera défini dynamiquement
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>*** Test Cases ***
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>Test Complet API Booker
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>    [Documentation]    Test complet du cycle de vie d&#39;une réservation
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>    Créer Une Nouvelle Réservation
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>    Récupérer La Réservation
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>    Modifier La Réservation
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>    Supprimer La Réservation
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>*** Keywords ***
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>Créer Une Nouvelle Réservation
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>    [Documentation]    Crée une nouvelle réservation via POST
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>    # TODO: Implémenter
+<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>
+<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a># TODO: Autres keywords
+</code></pre></div>
+<h2 id="bonus-optionnel">🎁 Bonus (optionnel)<a class="headerlink" href="#bonus-optionnel" title="Permanent link">&para;</a></h2>
+<p>Si vous terminez rapidement, essayez ces défis supplémentaires :</p>
+<h3 id="defi-1-tests-negatifs">Défi 1 : Tests négatifs<a class="headerlink" href="#defi-1-tests-negatifs" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Testez la création d'une réservation avec des données invalides</li>
+<li>Testez l'accès à une réservation qui n'existe pas</li>
+<li>Testez la modification sans authentification</li>
+</ul>
+<h3 id="defi-2-reutilisabilite">Défi 2 : Réutilisabilité<a class="headerlink" href="#defi-2-reutilisabilite" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Créez des keywords réutilisables</li>
+<li>Externalisez les données de test dans des variables ou fichiers</li>
+<li>Implémentez une suite de tests avec setup/teardown</li>
+</ul>
+<h3 id="defi-3-validation-avancee">Défi 3 : Validation avancée<a class="headerlink" href="#defi-3-validation-avancee" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Validez le format des dates</li>
+<li>Vérifiez les types de données retournées</li>
+<li>Implémentez des assertions personnalisées</li>
+</ul>
+<h2 id="conseils-pour-reussir">💡 Conseils pour réussir<a class="headerlink" href="#conseils-pour-reussir" title="Permanent link">&para;</a></h2>
+<div class="admonition tip">
+<p class="admonition-title">Bonnes pratiques</p>
+</div>
+<ul>
+<li>Testez chaque étape individuellement avant de les combiner</li>
+<li>Utilisez <code>Log</code> et <code>Log To Console</code> pour déboguer</li>
+<li>Consultez la documentation de RequestsLibrary, notamment le Keyword <code>GET</code> où sont documentés les arguments <code>**kwargs</code></li>
+<li>Vérifiez les réponses HTTP avec les status codes appropriés</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Points d'attention</p>
+</div>
+<ul>
+<li>L'API Booker est parfois lente, ajoutez des timeouts si nécessaire</li>
+<li>Les IDs de réservation sont temporaires et peuvent être supprimés</li>
+</ul>
+<h2 id="ressources-utiles">📖 Ressources utiles<a class="headerlink" href="#ressources-utiles" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://marketsquare.github.io/robotframework-requests/doc/RequestsLibrary.html#GET" target="_blank">RequestsLibrary</a></li>
+<li><a href="https://robotframework.org/robotframework/latest/libraries/BuiltIn.html" target="_blank">BuiltIn</a></li>
+<li><a href="https://robotframework.org/robotframework/latest/libraries/Collections.html" target="_blank">Collections</a></li>
+</ul>
+<h2 id="validation">🏆 Validation<a class="headerlink" href="#validation" title="Permanent link">&para;</a></h2>
+<p>Votre exercice est réussi si :</p>
+<ul>
+<li>✅ Tous vos tests passent (statut PASS)</li>
+<li>✅ Vous créez, lisez, modifiez et supprimez une réservation</li>
+<li>✅ L'authentification fonctionne correctement</li>
+<li>✅ Les assertions validant les données sont présentes</li>
+<li>✅ Votre code est lisible et bien organisé</li>
+</ul>
+<p>Bon courage ! N'hésitez pas à expérimenter et à consulter la documentation en cas de besoin.</p>
+<h2 id="prochaines-etapes">Prochaines étapes<a class="headerlink" href="#prochaines-etapes" title="Permanent link">&para;</a></h2>
+<p>Une fois que vous maîtrisez les tests d'API, découvrez les tests d'interface utilisateur dans l'<a href="../todo-mvc/">exercice TODO MVC</a> !</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Retour en haut de la page
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.top", "search.highlight", "content.code.copy", "toc.integrate"], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.aecac24b.min.js"></script>
+      
+    
+  </body>
+</html>

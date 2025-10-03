@@ -1,0 +1,1173 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Guide d'apprentissage de Robot Framework">
+      
+      
+        <meta name="author" content="Rémi PICARD">
+      
+      
+      
+        <link rel="prev" href="../api-booker/">
+      
+      
+        <link rel="next" href="../robot-flower-princess/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.7">
+    
+    
+      
+        <title>TODO MVC - Codelab Robot Framework</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.4b4a2bd9.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.356b1318.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#test-de-linterface-todo-mvc" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href=".." title="Codelab Robot Framework" class="md-header__button md-logo" aria-label="Codelab Robot Framework" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Codelab Robot Framework
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              TODO MVC
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Passer au mode sombre"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Passer au mode sombre" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Passer au mode clair"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Passer au mode clair" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Rechercher" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Recherche">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Effacer" aria-label="Effacer" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initialisation de la recherche
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Onglets" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+    
+  
+  Accueil
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../installation/" class="md-tabs__link">
+        
+  
+    
+  
+  Install
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../installation-docker/" class="md-tabs__link">
+        
+  
+    
+  
+  Install Docker
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../hello-world/" class="md-tabs__link">
+        
+  
+    
+  
+  Hello World
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../configuration-ide/" class="md-tabs__link">
+        
+  
+    
+  
+  Conf IDE
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../api-booker/" class="md-tabs__link">
+        
+  
+    
+  
+  API Booker
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+    
+  
+  TODO MVC
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../robot-flower-princess/" class="md-tabs__link">
+        
+  
+    
+  
+  Jeu (RPA)
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Codelab Robot Framework" class="md-nav__button md-logo" aria-label="Codelab Robot Framework" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Codelab Robot Framework
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Accueil
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Install
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation-docker/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Install Docker
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hello-world/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hello World
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration-ide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Conf IDE
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api-booker/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    API Booker
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    TODO MVC
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    TODO MVC
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objectifs" class="md-nav__link">
+    🎯 Objectifs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#duree" class="md-nav__link">
+    🕰️ Durée
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#application-a-tester" class="md-nav__link">
+    🌐 Application à tester
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercices-a-realiser" class="md-nav__link">
+    📋 Exercices à réaliser
+  </a>
+  
+    <nav class="md-nav" aria-label="📋 Exercices à réaliser">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#etape-1-installation-de-browser-library-et-playwright" class="md-nav__link">
+    Étape 1 : Installation de Browser Library et Playwright
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-2-configuration-de-base-et-premier-test" class="md-nav__link">
+    Étape 2 : Configuration de base et premier test
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-3-creer-une-tache" class="md-nav__link">
+    Étape 3 : Créer une tâche
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-4-lister-les-taches" class="md-nav__link">
+    Étape 4 : Lister les tâches
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-5-filtrer-les-taches" class="md-nav__link">
+    Étape 5 : Filtrer les tâches
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-6-terminer-une-tache" class="md-nav__link">
+    Étape 6 : Terminer une tâche
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-7-supprimer-une-tache" class="md-nav__link">
+    Étape 7 : Supprimer une tâche
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-8-supprimer-toutes-les-taches-terminees" class="md-nav__link">
+    Étape 8 : Supprimer toutes les tâches terminées
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#structure-suggeree-du-fichier" class="md-nav__link">
+    🔧 Structure suggérée du fichier
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bonus-optionnel" class="md-nav__link">
+    🎁 Bonus (optionnel)
+  </a>
+  
+    <nav class="md-nav" aria-label="🎁 Bonus (optionnel)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#defi-1-tests-de-validation" class="md-nav__link">
+    Défi 1 : Tests de validation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defi-2-edition-inline" class="md-nav__link">
+    Défi 2 : Edition inline
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defi-3-interactions-avancees" class="md-nav__link">
+    Défi 3 : Interactions avancées
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defi-4-multi-navigateurs" class="md-nav__link">
+    Défi 4 : Multi-navigateurs
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conseils-pour-reussir" class="md-nav__link">
+    💡 Conseils pour réussir
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ressources-utiles" class="md-nav__link">
+    📖 Ressources utiles
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#selecteurs-utiles" class="md-nav__link">
+    🛠️ Sélecteurs utiles
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validation" class="md-nav__link">
+    🏆 Validation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#strategies-de-debogage" class="md-nav__link">
+    🔍 Stratégies de débogage
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prochaines-etapes" class="md-nav__link">
+    Prochaines étapes
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../robot-flower-princess/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Jeu (RPA)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="test-de-linterface-todo-mvc">Test de l'interface TODO MVC<a class="headerlink" href="#test-de-linterface-todo-mvc" title="Permanent link">&para;</a></h1>
+<p>Dans cet exercice pratique, vous allez apprendre à automatiser les tests d'interface utilisateur avec Robot Framework en utilisant la Browser Library moderne et l'application TODO MVC React.</p>
+<h2 id="objectifs">🎯 Objectifs<a class="headerlink" href="#objectifs" title="Permanent link">&para;</a></h2>
+<p>À la fin de cet exercice, vous saurez :</p>
+<ul>
+<li>Installer et configurer Browser Library avec Playwright</li>
+<li>Automatiser des interactions avec une interface web</li>
+<li>Localiser des éléments avec différents sélecteurs</li>
+<li>Gérer l'état des éléments (visible, enabled, etc.)</li>
+<li>Prendre des captures d'écran pour le débogage</li>
+<li>Organiser vos tests UI de manière efficace</li>
+</ul>
+<h2 id="duree">🕰️ Durée<a class="headerlink" href="#duree" title="Permanent link">&para;</a></h2>
+<p>2h à 3h</p>
+<h2 id="application-a-tester">🌐 Application à tester<a class="headerlink" href="#application-a-tester" title="Permanent link">&para;</a></h2>
+<p>Nous utiliserons l'application TODO MVC React disponible à l'adresse :
+<a href="https://todomvc.com/examples/react/dist" target="_blank">https://todomvc.com/examples/react/dist</a></p>
+<p>Cette application permet de :</p>
+<ul>
+<li>✅ Créer des tâches</li>
+<li>✅ Marquer des tâches comme terminées</li>
+<li>✅ Filtrer les tâches (All, Active, Completed)</li>
+<li>✅ Supprimer des tâches individuelles</li>
+<li>✅ Supprimer toutes les tâches terminées</li>
+</ul>
+<h2 id="exercices-a-realiser">📋 Exercices à réaliser<a class="headerlink" href="#exercices-a-realiser" title="Permanent link">&para;</a></h2>
+<h3 id="etape-1-installation-de-browser-library-et-playwright">Étape 1 : Installation de Browser Library et Playwright<a class="headerlink" href="#etape-1-installation-de-browser-library-et-playwright" title="Permanent link">&para;</a></h3>
+<p>Votre première mission est d'installer les outils nécessaires pour l'automatisation web moderne.</p>
+<div class="admonition question">
+<p class="admonition-title">À faire</p>
+</div>
+<ol>
+<li>Installez <a href="https://nodejs.org" target="_blank">Node.js</a></li>
+<li>Ajoutez <code>strict-ssl=false</code> dans le fichier <code>~/.npmrc</code> pour bypasser la vérification SSL</li>
+<li>Installez <a href="https://robotframework-browser.org/#installation" target="_blank">Browser Library</a> dans votre environnement virtuel</li>
+<li>Installez les navigateurs Playwright</li>
+</ol>
+<details class="tip">
+<summary>Afficher les indices</summary>
+<ul>
+<li>Utilisez <code>pip install robotframework-browser==19.7.2</code></li>
+<li>Exécutez <code>rfbrowser init</code> pour installer le navigateur</li>
+<li>Exécutez <code>rfbrowser init firefox</code> si chromium est bloqué</li>
+</ul>
+</details>
+<div class="admonition warning">
+<p class="admonition-title">Note importante</p>
+</div>
+<p>L'installation de Playwright peut prendre plusieurs minutes car elle télécharge les navigateurs.</p>
+<details class="info">
+<summary>Dépannage 🐳</summary>
+<p>Si l'installation ne fonctionne pas, il est possible d'utiliser Docker avec un navigateur headless
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--rm<span class="w"> </span>--ipc<span class="o">=</span>host<span class="w"> </span>-v<span class="w"> </span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>:/test<span class="w"> </span>--user<span class="w"> </span>pwuser<span class="w"> </span>-w<span class="w"> </span>/test<span class="w"> </span>marketsquare/robotframework-browser:latest<span class="w"> </span>robot<span class="w"> </span>-P.<span class="w"> </span>-t<span class="w"> </span><span class="s2">&quot;Test Headless In Docker&quot;</span><span class="w"> </span>.
+</code></pre></div></p>
+<p>Sur Windows, remplacer <code>$(pwd)</code> par le chemin de votre projet</p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Test Headless In Docker
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    New Browser
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    # Décommenter en cas de problème SSL
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    # New Context    ignoreHTTPSErrors=${True}
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    New Page    https://todomvc.com/examples/react/dist/
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>    Take Screenshot
+</code></pre></div>
+L'utilisation de capture d'écran permet de voir l'avancement du navigateur headless.</p>
+</details>
+<h3 id="etape-2-configuration-de-base-et-premier-test">Étape 2 : Configuration de base et premier test<a class="headerlink" href="#etape-2-configuration-de-base-et-premier-test" title="Permanent link">&para;</a></h3>
+<p>Créez un fichier <code>todo_mvc.robot</code> avec la structure de base.</p>
+<div class="admonition question">
+<p class="admonition-title">À faire</p>
+</div>
+<ol>
+<li>Importez la Browser Library dans la section <code>*** Settings ***</code></li>
+<li>Définissez l'URL de l'application comme variable</li>
+<li>Créez un test simple pour ouvrir l'application et vérifier qu'elle se charge</li>
+<li>Vérifiez que le titre de la page contient "TodoMVC"</li>
+</ol>
+<p><strong>Structure suggérée :</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>*** Settings ***
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a># TODO: Importer Browser Library
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>*** Variables ***
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a># TODO: Définir l&#39;URL de l&#39;application TODO MVC
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>*** Test Cases ***
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a># Vos tests iront ici
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>*** Keywords ***
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a># Vos mots-clés personnalisés iront ici
+</code></pre></div></p>
+<details class="tip">
+<summary>Afficher les indices</summary>
+<ul>
+<li>Utilisez le Keyword  <code>Open Browser</code> ou <code>Open Browser  browser=firefox</code> pour ouvrir le navigateur</li>
+<li>Utilisez <code>New Page</code> pour ouvrir une page</li>
+</ul>
+</details>
+<h3 id="etape-3-creer-une-tache">Étape 3 : Créer une tâche<a class="headerlink" href="#etape-3-creer-une-tache" title="Permanent link">&para;</a></h3>
+<p>Implémentez un test pour ajouter une nouvelle tâche à la liste.</p>
+<div class="admonition question">
+<p class="admonition-title">À faire</p>
+</div>
+<ol>
+<li>Créez un test case <code>Créer Une Nouvelle Tâche</code></li>
+<li>Localisez le champ de saisie des tâches</li>
+<li>Saisissez le texte d'une nouvelle tâche</li>
+<li>Appuyez sur Entrée pour valider</li>
+<li>Vérifiez que la tâche apparaît dans la liste</li>
+</ol>
+<details class="tip">
+<summary>Afficher les indices</summary>
+<ul>
+<li>Le champ de saisie a un placeholder "What needs to be done?"</li>
+<li>Utilisez <code>Fill Text</code> pour saisir le texte</li>
+<li>Utilisez <code>Keyboard Key</code> avec "Enter" pour valider</li>
+<li>Vérifiez la présence de la tâche avec <code>Get Text</code> ou <code>Get Element</code></li>
+</ul>
+</details>
+<h3 id="etape-4-lister-les-taches">Étape 4 : Lister les tâches<a class="headerlink" href="#etape-4-lister-les-taches" title="Permanent link">&para;</a></h3>
+<p>Créez un test pour vérifier que vous pouvez récupérer la liste des tâches existantes.</p>
+<div class="admonition question">
+<p class="admonition-title">À faire</p>
+</div>
+<ol>
+<li>Créez plusieurs tâches de test</li>
+<li>Récupérez la liste de toutes les tâches affichées</li>
+<li>Vérifiez le nombre de tâches créées</li>
+<li>Validez le contenu des tâches</li>
+</ol>
+<details class="tip">
+<summary>Afficher les indices</summary>
+<ul>
+<li>Les tâches sont dans des éléments <code>&lt;li&gt;</code> avec la classe <code>todo</code></li>
+<li>Utilisez <code>Get Elements</code> pour récupérer plusieurs éléments</li>
+<li>Comptez les éléments avec <code>Get Length</code></li>
+<li>Parcourez la liste pour vérifier le contenu</li>
+</ul>
+</details>
+<h3 id="etape-5-filtrer-les-taches">Étape 5 : Filtrer les tâches<a class="headerlink" href="#etape-5-filtrer-les-taches" title="Permanent link">&para;</a></h3>
+<p>Implémentez un test pour utiliser les filtres de l'application (All, Active, Completed).</p>
+<div class="admonition question">
+<p class="admonition-title">À faire</p>
+</div>
+<ol>
+<li>Créez plusieurs tâches de test</li>
+<li>Marquez certaines tâches comme terminées</li>
+<li>Testez le filtre "Active" (tâches non terminées)</li>
+<li>Testez le filtre "Completed" (tâches terminées)</li>
+<li>Testez le filtre "All" (toutes les tâches)</li>
+<li>Vérifiez que le bon nombre de tâches est affiché pour chaque filtre</li>
+</ol>
+<details class="tip">
+<summary>Afficher les indices</summary>
+<ul>
+<li>Les filtres sont des liens en bas de l'application</li>
+<li>Une tâche est marquée comme terminée en cliquant sur le cercle à gauche</li>
+<li>Les tâches terminées ont la classe CSS <code>completed</code></li>
+<li>Utilisez <code>Click</code> pour interagir avec les filtres</li>
+</ul>
+</details>
+<h3 id="etape-6-terminer-une-tache">Étape 6 : Terminer une tâche<a class="headerlink" href="#etape-6-terminer-une-tache" title="Permanent link">&para;</a></h3>
+<p>Créez un test pour marquer une tâche comme terminée et vérifier le changement d'état.</p>
+<div class="admonition question">
+<p class="admonition-title">À faire</p>
+</div>
+<ol>
+<li>Créez une tâche de test</li>
+<li>Cliquez sur le bouton de completion (cercle) de la tâche</li>
+<li>Vérifiez que la tâche a la classe <code>completed</code></li>
+<li>Vérifiez que le texte de la tâche est barré</li>
+<li>Testez également le "dé-marquage" d'une tâche terminée</li>
+</ol>
+<details class="tip">
+<summary>Afficher les indices</summary>
+<ul>
+<li>Le bouton de completion est un <code>input[type="checkbox"]</code></li>
+<li>Une tâche terminée a un style <code>text-decoration: line-through</code></li>
+<li>Utilisez des assertions sur les classes CSS ou les styles</li>
+</ul>
+</details>
+<h3 id="etape-7-supprimer-une-tache">Étape 7 : Supprimer une tâche<a class="headerlink" href="#etape-7-supprimer-une-tache" title="Permanent link">&para;</a></h3>
+<p>Implémentez un test pour supprimer une tâche individuelle.</p>
+<div class="admonition question">
+<p class="admonition-title">À faire</p>
+</div>
+<ol>
+<li>Créez une tâche de test</li>
+<li>Survolez la tâche pour révéler le bouton de suppression</li>
+<li>Cliquez sur le bouton de suppression</li>
+<li>Vérifiez que la tâche a disparu de la liste</li>
+<li>Vérifiez que le compteur de tâches a été mis à jour</li>
+</ol>
+<details class="tip">
+<summary>Afficher les indices</summary>
+<ul>
+<li>Le bouton de suppression n'apparaît qu'au survol (<code>hover</code>)</li>
+<li>Utilisez <code>Hover</code> pour déclencher l'affichage du bouton</li>
+<li>Le bouton a généralement une classe comme <code>destroy</code></li>
+<li>Vérifiez l'absence avec des assertions négatives</li>
+</ul>
+</details>
+<h3 id="etape-8-supprimer-toutes-les-taches-terminees">Étape 8 : Supprimer toutes les tâches terminées<a class="headerlink" href="#etape-8-supprimer-toutes-les-taches-terminees" title="Permanent link">&para;</a></h3>
+<p>Créez un test pour utiliser la fonction "Clear completed".</p>
+<div class="admonition question">
+<p class="admonition-title">À faire</p>
+</div>
+<ol>
+<li>Créez plusieurs tâches de test</li>
+<li>Marquez certaines tâches comme terminées</li>
+<li>Cliquez sur le bouton "Clear completed"</li>
+<li>Vérifiez que seules les tâches terminées ont été supprimées</li>
+<li>Vérifiez que les tâches actives restent présentes</li>
+</ol>
+<details class="tip">
+<summary>Afficher les indices</summary>
+<ul>
+<li>Le bouton "Clear completed" n'apparaît que s'il y a des tâches terminées</li>
+<li>Comptez les tâches avant et après l'opération</li>
+<li>Vérifiez que les tâches restantes sont toutes actives</li>
+</ul>
+</details>
+<h2 id="structure-suggeree-du-fichier">🔧 Structure suggérée du fichier<a class="headerlink" href="#structure-suggeree-du-fichier" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>*** Settings ***
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>Library     Browser
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a># TODO: Autres imports si nécessaires
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>*** Variables ***
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>${TODO_URL}    https://todomvc.com/examples/react/dist
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>${TIMEOUT}     10s
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>*** Test Cases ***
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>Test Complet TODO MVC
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>    [Documentation]    Test complet de l&#39;application TODO MVC
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>    Setup Navigateur
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>    Créer Une Nouvelle Tâche
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>    Lister Les Tâches
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>    Filtrer Les Tâches
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>    Terminer Une Tâche
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>    Supprimer Une Tâche
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>    Supprimer Toutes Les Tâches Terminées
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>    [Teardown]    Fermer Navigateur
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>
+<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>*** Keywords ***
+<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>Setup Navigateur
+<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>    [Documentation]    Initialise le navigateur et ouvre l&#39;application
+<a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a>    # TODO: Implémenter
+<a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a>
+<a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a>Créer Une Nouvelle Tâche
+<a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a>    [Documentation]    Ajoute une nouvelle tâche à la liste
+<a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a>    # TODO: Implémenter
+<a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a>
+<a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a>Fermer Navigateur
+<a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a>    [Documentation]    Ferme proprement le navigateur
+<a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a>    # TODO: Implémenter
+<a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a>
+<a id="__codelineno-3-34" name="__codelineno-3-34" href="#__codelineno-3-34"></a># TODO: Autres keywords
+</code></pre></div>
+<h2 id="bonus-optionnel">🎁 Bonus (optionnel)<a class="headerlink" href="#bonus-optionnel" title="Permanent link">&para;</a></h2>
+<p>Si vous terminez rapidement, essayez ces défis supplémentaires :</p>
+<h3 id="defi-1-tests-de-validation">Défi 1 : Tests de validation<a class="headerlink" href="#defi-1-tests-de-validation" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Testez la création de tâches vides (doit être rejetée)</li>
+<li>Testez la création de tâches avec des caractères spéciaux</li>
+<li>Testez le comportement avec de très longues tâches</li>
+</ul>
+<h3 id="defi-2-edition-inline">Défi 2 : Edition inline<a class="headerlink" href="#defi-2-edition-inline" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Implémentez l'édition d'une tâche existante (double-clic)</li>
+<li>Testez l'annulation d'édition avec Escape</li>
+<li>Testez la sauvegarde d'édition avec Entrée</li>
+</ul>
+<h3 id="defi-3-interactions-avancees">Défi 3 : Interactions avancées<a class="headerlink" href="#defi-3-interactions-avancees" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Implémentez le "toggle all" (marquer/démarquer toutes les tâches)</li>
+<li>Testez les raccourcis clavier</li>
+<li>Ajoutez des assertions sur le compteur de tâches</li>
+</ul>
+<h3 id="defi-4-multi-navigateurs">Défi 4 : Multi-navigateurs<a class="headerlink" href="#defi-4-multi-navigateurs" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Exécutez vos tests sur Chrome, Firefox et Safari</li>
+<li>Comparez les comportements entre navigateurs</li>
+<li>Gérez les spécificités de chaque navigateur</li>
+</ul>
+<h2 id="conseils-pour-reussir">💡 Conseils pour réussir<a class="headerlink" href="#conseils-pour-reussir" title="Permanent link">&para;</a></h2>
+<div class="admonition tip">
+<p class="admonition-title">Bonnes pratiques UI</p>
+</div>
+<ul>
+<li>Utilisez des attentes explicites (<code>Wait For Elements State</code>)</li>
+<li>Prenez des captures d'écran aux étapes importantes</li>
+<li>Utilisez des sélecteurs robustes (ID &gt; classe &gt; XPath)</li>
+<li>Gérez les temps d'attente appropriés</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Debug et développement</p>
+</div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a># Capture d&#39;écran pour debug
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>Take Screenshot    debug_step_${TEST_NAME}.png
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a># Pause pour inspection manuelle
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>Pause Execution    Inspectez l&#39;état current
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a># Log des éléments trouvés
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>${elements}=    Get Elements    css=.todo
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>Log    Nombre d&#39;éléments trouvés: ${elements.length}
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Points d'attention</p>
+</div>
+<ul>
+<li>L'application TODO MVC peut être réinitialisée à chaque rechargement</li>
+<li>Certains éléments ne sont visibles qu'en cas d'interaction (hover, focus)</li>
+<li>Les sélecteurs CSS peuvent varier selon l'implémentation</li>
+<li>Gérez les états transitoires (animations, chargements)</li>
+</ul>
+<h2 id="ressources-utiles">📖 Ressources utiles<a class="headerlink" href="#ressources-utiles" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://marketsquare.github.io/robotframework-browser/Browser.html" target="_blank">Browser Library</a></li>
+<li><a href="https://playwright.dev/docs/intro" target="_blank">Playwright</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors" target="_blank">Guide des sélecteurs CSS</a></li>
+<li><a href="https://robotframework-browser.org/#examples" target="_blank">Exemples / Comparaison</a></li>
+</ul>
+<h2 id="selecteurs-utiles">🛠️ Sélecteurs utiles<a class="headerlink" href="#selecteurs-utiles" title="Permanent link">&para;</a></h2>
+<p>Voici quelques indices sur les sélecteurs que vous pourriez utiliser :</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a># Exemples de sélecteurs (à adapter selon l&#39;implémentation)
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>${INPUT_FIELD}           css=.new-todo
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>${TODO_LIST}             css=.todo-list
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>${TODO_ITEMS}            css=.todo-list li
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>${TOGGLE_ALL}            css=.toggle-all
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>${FILTERS}               css=.filters a
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>${CLEAR_COMPLETED}       css=.clear-completed
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>${TODO_COUNT}            css=.todo-count
+</code></pre></div>
+<h2 id="validation">🏆 Validation<a class="headerlink" href="#validation" title="Permanent link">&para;</a></h2>
+<p>Votre exercice est réussi si :</p>
+<ul>
+<li>✅ Tous vos tests passent dans au moins un navigateur</li>
+<li>✅ Vous pouvez créer, lister, filtrer, terminer et supprimer des tâches</li>
+<li>✅ Vos sélecteurs sont robustes et ne cassent pas facilement</li>
+<li>✅ Vous gérez correctement les attentes et les états des éléments</li>
+<li>✅ Votre code est organisé avec des keywords réutilisables</li>
+<li>✅ Vous prenez des captures d'écran aux moments appropriés</li>
+</ul>
+<h2 id="strategies-de-debogage">🔍 Stratégies de débogage<a class="headerlink" href="#strategies-de-debogage" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>*** Keywords ***
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>Debug État Application
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>    [Documentation]    Helper pour déboguer l&#39;état de l&#39;application
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>    Take Screenshot    debug_etat_actuel.png
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>    ${todos}=    Get Elements    css=.todo-list li
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>    Log    Nombre de tâches: ${todos.length}
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>    FOR    ${todo}    IN    @{todos}
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>        ${text}=    Get Text    ${todo}
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>        ${classe}=    Get Attribute    ${todo}    class
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>        Log    Tâche: &quot;${text}&quot; - Classes: ${classe}
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>    END
+</code></pre></div>
+<p>Bon courage ! N'hésitez pas à expérimenter avec différents navigateurs et à personnaliser vos tests selon vos besoins.</p>
+<h2 id="prochaines-etapes">Prochaines étapes<a class="headerlink" href="#prochaines-etapes" title="Permanent link">&para;</a></h2>
+<p>Après avoir maîtrisé l'automation d'interface utilisateur, relevez un défi plus ludique avec le <a href="../robot-flower-princess/">Jeu Robot Flower Princess</a> qui combine APIs, algorithmes et stratégie !</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Retour en haut de la page
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.top", "search.highlight", "content.code.copy", "toc.integrate"], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.aecac24b.min.js"></script>
+      
+    
+  </body>
+</html>
