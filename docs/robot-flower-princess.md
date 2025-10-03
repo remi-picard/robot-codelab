@@ -1,6 +1,8 @@
 # 🌸 Jeu Robot Flower Princess
 
-Bienvenue dans cet exercice ludique où vous allez programmer un robot pour qu'il livre une fleur à une princesse ! Ce défi combine l'apprentissage de Robot Framework avec un jeu de plateau stratégique.
+Bienvenue dans cet exercice ludique où vous allez programmer un robot pour qu'il livre une fleur à une princesse ! Ce défi combine l'apprentissage de Robot Framework avec un jeu de plateau stratégique. 
+
+C'est l'occasion de découvrir la partie **Robotic Process Automation (RPA)** de Robot Framework. 
 
 ## 🎯 Objectifs
 
@@ -264,10 +266,14 @@ Vérifier Victoire
 - Ajouter des ressources
 - Utiliser les dataclasses Python 🐍
 
-### Défi 2 : Optimisation
+### Défi 2 : Tester
+- Trouver le bug
+- Ecrire un test pour le reproduire
+
+### Défi 3 : Optimisation
 - Minimisez le nombre de mouvements total
 
-### Défi 3 : Visualisation avancée
+### Défi 4 : Visualisation avancée
 - Enregistrez chaque mouvement avec capture d'écran de l'UI avec Playwright
 
 ## 📖 API Reference complète

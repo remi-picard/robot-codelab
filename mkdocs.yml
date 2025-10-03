@@ -34,7 +34,7 @@ nav:
   - Conf IDE: configuration-ide.md
   - API Booker: api-booker.md
   - TODO MVC: todo-mvc.md
-  - Jeu: robot-flower-princess.md
+  - Jeu (RPA): robot-flower-princess.md
 
 markdown_extensions:
   - codehilite:
