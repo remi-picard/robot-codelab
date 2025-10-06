@@ -93,6 +93,10 @@ Implémentez un test pour créer une nouvelle réservation.
 }
 ```
 
+!!! warning "Erreur 500"
+    - L'API Booker renvoie une erreur 500 Internal Server Error (au lieu de renvoyer une erreur 400), si un des champs est mal orthographié
+    - vérifiez bien tous les champs `firstname`, `lastname` ... (attention à la casse)
+
 ??? tip "Afficher les indices"
     - Utilisez le mot-clé `POST` pour effectuer la requête
     - Le paramètre `json` permet d'envoyer des données JSON
