@@ -9,6 +9,10 @@ Assurez-vous d'avoir Docker installé sur votre système :
 - **Windows/macOS** : [Docker Desktop](https://www.docker.com/products/docker-desktop){target="_blank"}
 - **Linux** : [Docker Engine](https://docs.docker.com/engine/install/){target="_blank"}
 
+Bien redémarrer le poste après l'installation de Docker.
+
+Démarrez Docker.
+
 Vérifiez l'installation :
 ```bash
 docker --version
