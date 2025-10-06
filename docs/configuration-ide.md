@@ -74,6 +74,14 @@ Resource    resources/todo_mvc/todo_mvc.resource
 
 ![vscode.png](vscode.png)
 
+### Extension Live Server
+
+L'extension **Live Server** permet de raffraichir automatiquement le fichier de sortie `log.html`.
+
+Ce qui est intéressant puisqu'à chaque lancement de la commande `robot`, le fichier est écrasé.
+
+![live-server.png](live-server.png)
+
 ### Snippets utiles pour VSCode
 
 Créez le fichier `.vscode/robotframework.code-snippets` :
