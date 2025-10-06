@@ -47,9 +47,20 @@ En résumé :
 !!! warning "Choisir le bon plugin"
 Ne pas installer `Robot Framework Language Server` qui n'est pas compatible Robot Framework 7+
 
-Configurer le Python Path dans les options RobotCode :
+<br/>
+
+Configurer l'option **Python Path** avec dossier courant `.` dans les options RobotCode :
 
 ![pythonpath.png](pythonpath.png)
+
+Cette option permet d'utiliser des imports relatifs à la racine du projet.
+
+Par exemple, depuis un test robot dans le dossier `tests` :
+
+```robot
+*** Settings ***
+Resource    resources/todo_mvc/todo_mvc.resource
+```
 
 ### Fonctionnalités disponibles dans VSCode
 
