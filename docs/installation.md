@@ -11,6 +11,7 @@ Créer un dossier vide avec le nouveau projet `hello-robot`.
 Puis dans ce dossier, initialiser l'environnement virtuel :
 
 ```bash
+# Remplacer python3 par python ou python3.13 selon votre installation de python
 python3 -m venv venv
 source venv/bin/activate
 ```
