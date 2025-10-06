@@ -1,0 +1,1213 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Guide d'apprentissage de Robot Framework">
+      
+      
+        <meta name="author" content="Rémi PICARD">
+      
+      
+      
+        <link rel="prev" href="../todo-mvc/">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.7">
+    
+    
+      
+        <title>Jeu (RPA) - Codelab Robot Framework</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.4b4a2bd9.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.356b1318.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#jeu-robot-flower-princess" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href=".." title="Codelab Robot Framework" class="md-header__button md-logo" aria-label="Codelab Robot Framework" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Codelab Robot Framework
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Jeu (RPA)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Passer au mode sombre"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Passer au mode sombre" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Passer au mode clair"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Passer au mode clair" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Rechercher" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Recherche">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Effacer" aria-label="Effacer" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initialisation de la recherche
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Onglets" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+    
+  
+  Accueil
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../installation/" class="md-tabs__link">
+        
+  
+    
+  
+  Install
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../installation-docker/" class="md-tabs__link">
+        
+  
+    
+  
+  Install Docker
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../hello-world/" class="md-tabs__link">
+        
+  
+    
+  
+  Hello World
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../configuration-ide/" class="md-tabs__link">
+        
+  
+    
+  
+  Conf IDE
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../api-booker/" class="md-tabs__link">
+        
+  
+    
+  
+  API Booker
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../todo-mvc/" class="md-tabs__link">
+        
+  
+    
+  
+  TODO MVC
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+    
+  
+  Jeu (RPA)
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Codelab Robot Framework" class="md-nav__button md-logo" aria-label="Codelab Robot Framework" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Codelab Robot Framework
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Accueil
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Install
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation-docker/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Install Docker
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hello-world/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hello World
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration-ide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Conf IDE
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api-booker/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    API Booker
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../todo-mvc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TODO MVC
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Jeu (RPA)
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Jeu (RPA)
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objectifs" class="md-nav__link">
+    🎯 Objectifs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#duree" class="md-nav__link">
+    🕰️ Durée
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#regles-du-jeu" class="md-nav__link">
+    🎮 Règles du jeu
+  </a>
+  
+    <nav class="md-nav" aria-label="🎮 Règles du jeu">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#objectif" class="md-nav__link">
+    Objectif
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#elements-du-plateau" class="md-nav__link">
+    Éléments du plateau
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actions-possibles" class="md-nav__link">
+    Actions possibles
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#contraintes" class="md-nav__link">
+    Contraintes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation-avec-docker" class="md-nav__link">
+    🐳 Installation avec Docker
+  </a>
+  
+    <nav class="md-nav" aria-label="🐳 Installation avec Docker">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#etape-1-fichier-docker-compose" class="md-nav__link">
+    Étape 1 : Fichier Docker Compose
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-2-lancement-des-services" class="md-nav__link">
+    Étape 2 : Lancement des services
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-3-verification" class="md-nav__link">
+    Étape 3 : Vérification
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercices-a-realiser" class="md-nav__link">
+    📋 Exercices à réaliser
+  </a>
+  
+    <nav class="md-nav" aria-label="📋 Exercices à réaliser">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#etape-1-configuration-de-base" class="md-nav__link">
+    Étape 1 : Configuration de base
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-2-creer-et-explorer-une-partie" class="md-nav__link">
+    Étape 2 : Créer et explorer une partie
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-3-analyser-le-plateau" class="md-nav__link">
+    Étape 3 : Analyser le plateau
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-4-mouvements-de-base" class="md-nav__link">
+    Étape 4 : Mouvements de base
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-5-navigation-intelligente" class="md-nav__link">
+    Étape 5 : Navigation intelligente
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-6-strategie-complete" class="md-nav__link">
+    Étape 6 : Stratégie complète
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#structure-minimale-du-test" class="md-nav__link">
+    🔧 Structure minimale du test
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#defis-bonus" class="md-nav__link">
+    🎁 Défis bonus
+  </a>
+  
+    <nav class="md-nav" aria-label="🎁 Défis bonus">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#defi-1-organisation" class="md-nav__link">
+    Défi 1 : Organisation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defi-2-tester" class="md-nav__link">
+    Défi 2 : Tester
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defi-3-optimisation" class="md-nav__link">
+    Défi 3 : Optimisation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defi-4-visualisation-avancee" class="md-nav__link">
+    Défi 4 : Visualisation avancée
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-reference-complete" class="md-nav__link">
+    📖 API Reference complète
+  </a>
+  
+    <nav class="md-nav" aria-label="📖 API Reference complète">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#endpoints-disponibles" class="md-nav__link">
+    Endpoints disponibles
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parametres-de-direction" class="md-nav__link">
+    Paramètres de direction
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codes-de-plateau" class="md-nav__link">
+    Codes de plateau
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validation" class="md-nav__link">
+    🏆 Validation
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="jeu-robot-flower-princess">🌸 Jeu Robot Flower Princess<a class="headerlink" href="#jeu-robot-flower-princess" title="Permanent link">&para;</a></h1>
+<p>Bienvenue dans cet exercice ludique où vous allez programmer un robot pour qu'il livre une fleur à une princesse ! Ce défi combine l'apprentissage de Robot Framework avec un jeu de plateau stratégique. </p>
+<p>C'est l'occasion de découvrir la partie <strong>Robotic Process Automation (RPA)</strong> de Robot Framework. </p>
+<h2 id="objectifs">🎯 Objectifs<a class="headerlink" href="#objectifs" title="Permanent link">&para;</a></h2>
+<p>À la fin de cet exercice, vous saurez :</p>
+<ul>
+<li>Utiliser Docker Compose</li>
+<li>Interagir avec des APIs de jeu en temps réel</li>
+<li>Gérer l'état d'un jeu tour par tour</li>
+<li>Implémenter un algorithme de pathfinding simple</li>
+</ul>
+<h2 id="duree">🕰️ Durée<a class="headerlink" href="#duree" title="Permanent link">&para;</a></h2>
+<p>4h à 8h</p>
+<h2 id="regles-du-jeu">🎮 Règles du jeu<a class="headerlink" href="#regles-du-jeu" title="Permanent link">&para;</a></h2>
+<p><strong>Robot Flower Princess</strong> est un jeu de plateau stratégique pour 1 joueur.</p>
+<h3 id="objectif">Objectif<a class="headerlink" href="#objectif" title="Permanent link">&para;</a></h3>
+<p>🤖 <strong>Mission :</strong> Faire livrer une fleur à une princesse par votre robot !</p>
+<h3 id="elements-du-plateau">Éléments du plateau<a class="headerlink" href="#elements-du-plateau" title="Permanent link">&para;</a></h3>
+<ul>
+<li>🤖 <strong>Robot (R)</strong> : Votre personnage contrôlé</li>
+<li>🌸 <strong>Fleur (F)</strong> : À récupérer et livrer</li>
+<li>👸 <strong>Princesse (P)</strong> : Destination finale</li>
+<li>🗑️ <strong>Déchet (D)</strong> : Cases à nettoyer</li>
+<li>⬜ <strong>Vide (V)</strong> : Cases libres</li>
+</ul>
+<h3 id="actions-possibles">Actions possibles<a class="headerlink" href="#actions-possibles" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Se déplacer</strong> : 1 case dans 4 directions (H/B/G/D)</li>
+<li><strong>Nettoyer</strong> : Transformer une case déchet en case libre</li>
+<li><strong>Porter</strong> : Ramasser la fleur</li>
+<li><strong>Déposer</strong> : Livrer la fleur (uniquement sur la case princesse)</li>
+</ol>
+<h3 id="contraintes">Contraintes<a class="headerlink" href="#contraintes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>⚠️ Le robot ne peut se déplacer que sur les cases vides</li>
+<li>⚠️ Le robot ne peut pas nettoyer s'il porte la fleur</li>
+<li>⚠️ Un mouvement invalide fait perdre la partie</li>
+<li>✅ Victoire quand la fleur est sur la case princesse</li>
+</ul>
+<h2 id="installation-avec-docker">🐳 Installation avec Docker<a class="headerlink" href="#installation-avec-docker" title="Permanent link">&para;</a></h2>
+<h3 id="etape-1-fichier-docker-compose">Étape 1 : Fichier Docker Compose<a class="headerlink" href="#etape-1-fichier-docker-compose" title="Permanent link">&para;</a></h3>
+<p>Créez un fichier <code>docker-compose.yml</code> pour orchestrer les services :</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">services</span><span class="p">:</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">backend</span><span class="p">:</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">picardremi/robot-flower-princess:master</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;8000:8000&quot;</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="nt">networks</span><span class="p">:</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">robot-flower-princess-network</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="nt">frontend</span><span class="p">:</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">picardremi/robot-flower-princess-ui:latest</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;3000:80&quot;</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">    </span><span class="nt">depends_on</span><span class="p">:</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">backend</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">    </span><span class="nt">networks</span><span class="p">:</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">robot-flower-princess-network</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="nt">networks</span><span class="p">:</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">  </span><span class="nt">robot-flower-princess-network</span><span class="p">:</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">    </span><span class="nt">driver</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bridge</span>
+</code></pre></div>
+<h3 id="etape-2-lancement-des-services">Étape 2 : Lancement des services<a class="headerlink" href="#etape-2-lancement-des-services" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Démarrer les services</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d
+</code></pre></div>
+<p>En cas de problème :</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Vérifier que les services sont en cours d&#39;exécution</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>docker<span class="w"> </span>compose<span class="w"> </span>ps
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># Voir les logs si nécessaire</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>docker<span class="w"> </span>compose<span class="w"> </span>logs<span class="w"> </span>-f
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="c1"># Redémarrer les services</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>docker<span class="w"> </span>compose<span class="w"> </span>restart
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="c1"># Nettoyer et relancer</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>docker<span class="w"> </span>compose<span class="w"> </span>down<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d
+</code></pre></div>
+<h3 id="etape-3-verification">Étape 3 : Vérification<a class="headerlink" href="#etape-3-verification" title="Permanent link">&para;</a></h3>
+<p>Une fois les services démarrés, vérifiez l'accès :</p>
+<ul>
+<li>📖 <strong>API Swagger</strong> : <a href="http://localhost:8000/docs" target="_blank">http://localhost:8000/docs</a></li>
+<li>🎮 <strong>Interface de jeu</strong> : <a href="http://localhost:3000" target="_blank">http://localhost:3000</a></li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Conseil de débogage</p>
+</div>
+<p>Utilisez l'interface web pour suivre visuellement l'avancement de votre partie pendant que Robot Framework joue !</p>
+<h2 id="exercices-a-realiser">📋 Exercices à réaliser<a class="headerlink" href="#exercices-a-realiser" title="Permanent link">&para;</a></h2>
+<h3 id="etape-1-configuration-de-base">Étape 1 : Configuration de base<a class="headerlink" href="#etape-1-configuration-de-base" title="Permanent link">&para;</a></h3>
+<p>Créez un fichier <code>robot_flower_princess.robot</code> avec la configuration de base.</p>
+<div class="admonition question">
+<p class="admonition-title">À faire</p>
+</div>
+<ol>
+<li>Importez RequestsLibrary</li>
+<li>Définissez l'URL de base de l'API</li>
+<li>Testez la connexion à l'API</li>
+</ol>
+<p><strong>Structure suggérée :</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>*** Settings ***
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a># TODO: Importer RequestsLibrary
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>*** Variables ***
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>${API_BASE_URL}    http://localhost:8000
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>*** Test Cases ***
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a># Vos tests de jeu iront ici
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>*** Keywords ***
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a># Vos stratégies de jeu iront ici
+</code></pre></div></p>
+<h3 id="etape-2-creer-et-explorer-une-partie">Étape 2 : Créer et explorer une partie<a class="headerlink" href="#etape-2-creer-et-explorer-une-partie" title="Permanent link">&para;</a></h3>
+<p>Implémentez les fonctions de base pour interagir avec l'API de jeu.</p>
+<div class="admonition question">
+<p class="admonition-title">À faire</p>
+</div>
+<ol>
+<li>Créez un keyword pour démarrer une nouvelle partie</li>
+<li>Récupérez l'ID de la partie créée</li>
+<li>Créez un keyword pour récupérer l'état du plateau</li>
+<li>Affichez le plateau sous forme lisible</li>
+</ol>
+<details class="tip">
+<summary>Afficher les indices</summary>
+<ul>
+<li><code>POST /games</code> retourne un JSON avec l'ID de la partie <code>game_id</code></li>
+<li><code>GET /games/{game_id}/board</code> retourne le plateau sous forme de chaîne.</li>
+</ul>
+</details>
+<h3 id="etape-3-analyser-le-plateau">Étape 3 : Analyser le plateau<a class="headerlink" href="#etape-3-analyser-le-plateau" title="Permanent link">&para;</a></h3>
+<p>Créez des fonctions pour comprendre l'état du jeu.</p>
+<div class="admonition question">
+<p class="admonition-title">À faire</p>
+</div>
+<ol>
+<li>Localisez les positions du robot, de la fleur et de la princesse</li>
+<li>Identifiez les cases vides et les déchets</li>
+<li>Créez une représentation interne du plateau</li>
+<li>Implémentez une fonction pour calculer la distance entre deux points</li>
+</ol>
+<details class="tip">
+<summary>Afficher les indices</summary>
+<ul>
+<li>Le plateau est une chaîne avec des retours à la ligne. Chaque ligne représente une rangée du plateau.</li>
+<li>Utilisez <code>Split String</code> pour traiter ligne par ligne</li>
+<li>Utilisez <code>Split String To Characters</code> pour récupérer les caractères (pièces) de chaque ligne</li>
+<li>Stockez les positions comme coordonnées (x, y)</li>
+</ul>
+</details>
+<h3 id="etape-4-mouvements-de-base">Étape 4 : Mouvements de base<a class="headerlink" href="#etape-4-mouvements-de-base" title="Permanent link">&para;</a></h3>
+<p>Implémentez les actions de base du robot.</p>
+<div class="admonition question">
+<p class="admonition-title">À faire</p>
+</div>
+<ol>
+<li>Créez un keyword pour déplacer le robot</li>
+<li>Créez un keyword pour nettoyer une case</li>
+<li>Créez un keyword pour ramasser la fleur</li>
+<li>Créez un keyword pour déposer la fleur</li>
+<li>Gérez les erreurs d'actions invalides</li>
+</ol>
+<details class="tip">
+<summary>Afficher les indices</summary>
+<ul>
+<li>TOUTES les actions prennent une direction : Haut/Bas/Gauche/Droite (<code>H</code> / <code>B</code> / <code>G</code> / <code>D</code>)</li>
+<li>Vérifiez toujours le statut de la réponse</li>
+</ul>
+</details>
+<h3 id="etape-5-navigation-intelligente">Étape 5 : Navigation intelligente<a class="headerlink" href="#etape-5-navigation-intelligente" title="Permanent link">&para;</a></h3>
+<p>Implémentez un algorithme pour naviguer vers une destination.</p>
+<div class="admonition question">
+<p class="admonition-title">À faire</p>
+</div>
+<ol>
+<li>Créez un algorithme de pathfinding simple</li>
+<li>Naviguez du robot vers la fleur</li>
+<li>Gérez les obstacles (déchets) en les nettoyant</li>
+</ol>
+<details class="tip">
+<summary>Afficher les indices</summary>
+<ul>
+<li>Commencez par un algorithme glouton (se rapprocher à chaque étape)</li>
+<li>Si une case déchet bloque, nettoyez-la d'abord</li>
+<li>Utilisez une boucle WHILE pour la navigation continue</li>
+<li>Arrêtez-vous quand vous atteignez la destination</li>
+</ul>
+</details>
+<h3 id="etape-6-strategie-complete">Étape 6 : Stratégie complète<a class="headerlink" href="#etape-6-strategie-complete" title="Permanent link">&para;</a></h3>
+<p>Implémentez une stratégie complète pour gagner au jeu.</p>
+<div class="admonition question">
+<p class="admonition-title">À faire</p>
+</div>
+<ol>
+<li>Combinez toutes les fonctions précédentes</li>
+<li>Naviguez vers la fleur et ramassez-la</li>
+<li>Naviguez vers la princesse avec la fleur</li>
+<li>Déposez la fleur sur la case princesse</li>
+<li>Vérifiez la victoire</li>
+</ol>
+<details class="tip">
+<summary>Afficher les indices</summary>
+<ul>
+<li>Une partie se joue en deux phases : récupérer puis livrer</li>
+<li>Le robot ne peut pas nettoyer s'il porte la fleur</li>
+<li>Planifiez le chemin retour avant de récupérer la fleur</li>
+</ul>
+</details>
+<h2 id="structure-minimale-du-test">🔧 Structure minimale du test<a class="headerlink" href="#structure-minimale-du-test" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>*** Settings ***
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>Library     RequestsLibrary
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>Library     String
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>Library     Collections
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>*** Variables ***
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>${API_BASE_URL}    http://localhost:8000
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>${UI_URL}          http://localhost:3000
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>*** Test Cases ***
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>Jouer Une Partie Complète
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>    [Documentation]    Résoudre automatiquement une partie du jeu
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>    ${game_id}=    Démarrer Nouvelle Partie
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>    Log To Console    🎮 Partie créée ! Suivez sur ${UI_URL}
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>    Log To Console    📋 Game ID: ${game_id}
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>    Afficher Plateau Initial
+<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a>    Résoudre Partie
+<a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a>    Vérifier Victoire
+<a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a>
+<a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a>*** Keywords ***
+<a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a>Démarrer Nouvelle Partie
+<a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a>    [Documentation]    Crée une nouvelle partie et retourne l&#39;ID
+<a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a>    # TODO: Implémenter
+<a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a>    [Return]    ${game_id}
+<a id="__codelineno-4-27" name="__codelineno-4-27" href="#__codelineno-4-27"></a>
+<a id="__codelineno-4-28" name="__codelineno-4-28" href="#__codelineno-4-28"></a>Afficher Plateau Initial
+<a id="__codelineno-4-29" name="__codelineno-4-29" href="#__codelineno-4-29"></a>    [Documentation]    Affiche l&#39;état initial du plateau
+<a id="__codelineno-4-30" name="__codelineno-4-30" href="#__codelineno-4-30"></a>    # TODO: Implémenter
+<a id="__codelineno-4-31" name="__codelineno-4-31" href="#__codelineno-4-31"></a>
+<a id="__codelineno-4-32" name="__codelineno-4-32" href="#__codelineno-4-32"></a>Résoudre Partie
+<a id="__codelineno-4-33" name="__codelineno-4-33" href="#__codelineno-4-33"></a>    [Documentation]    Stratégie complète pour gagner
+<a id="__codelineno-4-34" name="__codelineno-4-34" href="#__codelineno-4-34"></a>    # Phase 1: Aller chercher la fleur
+<a id="__codelineno-4-35" name="__codelineno-4-35" href="#__codelineno-4-35"></a>    Naviguer Vers Fleur
+<a id="__codelineno-4-36" name="__codelineno-4-36" href="#__codelineno-4-36"></a>    Ramasser Fleur
+<a id="__codelineno-4-37" name="__codelineno-4-37" href="#__codelineno-4-37"></a>
+<a id="__codelineno-4-38" name="__codelineno-4-38" href="#__codelineno-4-38"></a>    # Phase 2: Livrer à la princesse
+<a id="__codelineno-4-39" name="__codelineno-4-39" href="#__codelineno-4-39"></a>    Naviguer Vers Princesse
+<a id="__codelineno-4-40" name="__codelineno-4-40" href="#__codelineno-4-40"></a>    Livrer Fleur À Princesse
+<a id="__codelineno-4-41" name="__codelineno-4-41" href="#__codelineno-4-41"></a>
+<a id="__codelineno-4-42" name="__codelineno-4-42" href="#__codelineno-4-42"></a>Naviguer Vers Fleur
+<a id="__codelineno-4-43" name="__codelineno-4-43" href="#__codelineno-4-43"></a>    [Documentation]    Navigation intelligente vers la fleur
+<a id="__codelineno-4-44" name="__codelineno-4-44" href="#__codelineno-4-44"></a>    # TODO: Implémenter pathfinding
+<a id="__codelineno-4-45" name="__codelineno-4-45" href="#__codelineno-4-45"></a>
+<a id="__codelineno-4-46" name="__codelineno-4-46" href="#__codelineno-4-46"></a>Vérifier Victoire
+<a id="__codelineno-4-47" name="__codelineno-4-47" href="#__codelineno-4-47"></a>    [Documentation]    Vérifie si la partie est gagnée
+<a id="__codelineno-4-48" name="__codelineno-4-48" href="#__codelineno-4-48"></a>    # TODO: Implémenter
+</code></pre></div>
+<h2 id="defis-bonus">🎁 Défis bonus<a class="headerlink" href="#defis-bonus" title="Permanent link">&para;</a></h2>
+<h3 id="defi-1-organisation">Défi 1 : Organisation<a class="headerlink" href="#defi-1-organisation" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Ajouter des ressources</li>
+<li>Utiliser les dataclasses Python 🐍</li>
+</ul>
+<h3 id="defi-2-tester">Défi 2 : Tester<a class="headerlink" href="#defi-2-tester" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Trouver le bug</li>
+<li>Ecrire un test pour le reproduire</li>
+</ul>
+<h3 id="defi-3-optimisation">Défi 3 : Optimisation<a class="headerlink" href="#defi-3-optimisation" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Minimisez le nombre de mouvements total</li>
+</ul>
+<h3 id="defi-4-visualisation-avancee">Défi 4 : Visualisation avancée<a class="headerlink" href="#defi-4-visualisation-avancee" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Enregistrez chaque mouvement avec capture d'écran de l'UI avec Playwright</li>
+</ul>
+<h2 id="api-reference-complete">📖 API Reference complète<a class="headerlink" href="#api-reference-complete" title="Permanent link">&para;</a></h2>
+<h3 id="endpoints-disponibles">Endpoints disponibles<a class="headerlink" href="#endpoints-disponibles" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Méthode</th>
+<th>Endpoint</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>POST</td>
+<td><code>/games</code></td>
+<td>Créer une nouvelle partie</td>
+</tr>
+<tr>
+<td>GET</td>
+<td><code>/games/{game_id}/board</code></td>
+<td>Récupérer l'état du plateau</td>
+</tr>
+<tr>
+<td>POST</td>
+<td><code>/games/{game_id}/move</code></td>
+<td>Déplacer le robot</td>
+</tr>
+<tr>
+<td>POST</td>
+<td><code>/games/{game_id}/clean</code></td>
+<td>Nettoyer une case</td>
+</tr>
+<tr>
+<td>POST</td>
+<td><code>/games/{game_id}/pickup</code></td>
+<td>Ramasser la fleur</td>
+</tr>
+<tr>
+<td>POST</td>
+<td><code>/games/{game_id}/drop</code></td>
+<td>Déposer la fleur</td>
+</tr>
+</tbody>
+</table>
+<h3 id="parametres-de-direction">Paramètres de direction<a class="headerlink" href="#parametres-de-direction" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>H</strong> : Haut</li>
+<li><strong>B</strong> : Bas</li>
+<li><strong>G</strong> : Gauche</li>
+<li><strong>D</strong> : Droite</li>
+</ul>
+<h3 id="codes-de-plateau">Codes de plateau<a class="headerlink" href="#codes-de-plateau" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>R</strong> : Robot 🤖</li>
+<li><strong>F</strong> : Fleur 🌸</li>
+<li><strong>P</strong> : Princesse 👸</li>
+<li><strong>D</strong> : Déchet 🗑️</li>
+<li><strong>V</strong> : Vide ⬜</li>
+</ul>
+<h2 id="validation">🏆 Validation<a class="headerlink" href="#validation" title="Permanent link">&para;</a></h2>
+<p>Votre exercice est réussi si :</p>
+<ul>
+<li>✅ Votre robot peut naviguer sur le plateau</li>
+<li>✅ Vous avez affiché le plateau de façon claire</li>
+<li>✅ Votre robot récupère la fleur automatiquement</li>
+<li>✅ Votre robot livre la fleur à la princesse</li>
+</ul>
+<p>Amusez-vous bien avec ce défi ! C'est l'occasion de combiner logique algorithmique et maîtrise de Robot Framework dans un contexte ludique et motivant 🎮🤖🌸</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Retour en haut de la page
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.top", "search.highlight", "content.code.copy", "toc.integrate"], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.aecac24b.min.js"></script>
+      
+    
+  </body>
+</html>
